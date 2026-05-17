@@ -1,0 +1,416 @@
+
+Bilgisayar Programcılığı Programı Bilgileri
+
+
+Bölüm Genel Bilgisi - Kuruluş ve Yerleşke
+Program, üniversitenin kuruluşu olan 1997 yılından beri faaliyet gösteren köklü bir bölümdür. İstanbul Kültür Üniversitesi Meslek Yüksekokulu bünyesinde yer almaktadır. Bilgisayar Programcılığı programı, 2022-2023 öğretim yılından itibaren Ataköy Yerleşkesinde eğitim vermektedir.
+
+Bölüm Genel Bilgisi - Vizyon ve Misyon
+Vizyonumuz; ulusal düzeyde tercih edilen, mezunlarının bilgi ve becerileriyle sektörde fark yarattığı, sürekli gelişen teknolojilere uyum sağlayabilen bireyler yetiştiren bir eğitim programı olmaktır. Misyonumuz; kamu ve özel sektörün ihtiyaç duyduğu, yazılım geliştirme süreçlerine hâkim, mesleki etik ilkelere bağlı, takım çalışmasına yatkın ve problem çözme becerilerine sahip, çağdaş bilgisayar teknolojilerini etkin kullanabilen nitelikli meslek elemanları yetiştirmektir. Öğretim dili Türkçe'dir.
+
+Bölüm Genel Bilgisi - Amacımız
+Eğitim amaçlarımız, öğrencilerin iş dünyasının gereksinimlerine uygun bilgi, beceri ve yetkinliklerle donatılmasını hedeflemektedir. Program mezunlarının sektörde başarılı bir şekilde görev alabilmeleri, yaşam boyu öğrenme yaklaşımlarıyla mesleki gelişimlerini sürdürebilmeleri ve lisans eğitimlerine devam edebilmeleri hedeflenmektedir.
+
+Bölüm Genel Bilgisi - Çalışma Alanları ve Kariyer
+Bölüm mezunları, yazılım geliştirme, masaüstü yayıncılık, bilgisayar ağları ve internet servisleri yanında, tüm bilgisayar uygulamaları alanlarında programcı, sistem yöneticisi, operatör gibi görevleri yürütebilecek şekilde donatılmış olarak yetiştirilmektedir. Bu programdan mezun olan öğrenciler, başta sanayi kuruluşları olmak üzere yazılım firmaları, bilgisayar satıcısı ve teknik destek firmaları, bankalar, sigorta şirketleri, ticari kuruluşlar, internet servis sağlayıcıları, internet yayıncılık şirketleri, radyo, televizyon, araştırma şirketleri, ulaştırma gibi kamu ve özel sektörde faaliyet gösteren pek çok kurum ve kuruluşta çalışabilme imkânına sahip olacaklardır.
+
+Başarı ve Mezuniyet Rehberi - Kritik Dersler
+Bölümdeki teknik yetkinliğini kanıtlayan ve okulun başarı oranını titizlikle takip ettiği üç temel çekirdek ders bulunmaktadır: TBP1003 (Veri Yapıları), TBP1001 (Algoritma ve Programlama Temelleri) ve TBP2001 (Nesne Tabanlı Programlama). Bu derslerdeki başarı oranları, programın temel performans göstergesidir. Bu dersleri sıkı tutman akademik kariyerin için hayati önem taşır. Ayrıca Bitirme Projesi mezuniyetin en önemli anahtarıdır; uygulama odaklı bir proje ile yetkinliğini kanıtlaman beklenir.
+
+Başarı ve Mezuniyet Rehberi - Teknik Portfolyo ve GitHub
+Okul, mezunlarının sektöre hazır olmasını sadece notlarla değil, somut projelerle ölçer. Mezuniyet öncesinde aktif bir GitHub hesabına sahip olman ve projelerini burada yayınlaman, programın ana hedeflerinden biridir. Yazılım geliştirme ve veri tabanı tasarımı alanlarında sadece teorik bilgi değil, uygulama becerisi kazanman hedeflenir.
+
+Başarı ve Mezuniyet Rehberi - Staj ve İstihdam Fırsatları
+Kariyer yolculuğunda şu istatistikler ve hedefler seni bekliyor: Mezunların ilk 6 ay içinde istihdam edilme oranı düzenli olarak takip edilir. Staj yaptığın kurumda çalışmaya devam etme oranı bir başarı kriteridir. Stajını sadece bir zorunluluk değil, bir iş kapısı olarak görmelisin. Ayrıca okul, mezunlarının sektördeki performansını işveren anketleri üzerinden ölçer.
+
+[Başarı ve Mezuniyet Rehberi - DGS ve Yaşam Boyu Öğrenme]ü
+Önlisans sonrası eğitimine devam etmek isteyenler için program, mezunlarının Lisans tamamlama programlarına (DGS ile geçiş) akademik olarak yeterli olmasını hedefler. Ayrıca PUMA sistemi üzerinden ölçülen teknik seminer ve eğitimlere katılımın, teknolojiye uyum sağlama becerin olarak değerlendirilir.
+
+Başarı ve Mezuniyet Rehberi - Sosyal ve Etik Yetkinlikler
+Sadece kod yazmak yetmez; okul senden takım çalışmasına yatkın olmanı bekler. Grup projeleri ve ödevler bunu ölçmek için kullanılır. En az bir öğrenci topluluğuna/kulübüne üye olman, sosyal gelişiminin bir parçası olarak teşvik edilir. Tüm bilişim çözümlerinde etik ilkelere ve bilgi güvenliğine uygun hareket etmen esastır.
+
+
+BİLGİSAYAR PROGRAMCILIĞI SOSYAL SORUMLULUK VE TOPLUMSAL KATKI
+
+GENEL VİZYON
+Bilgisayar Programcılığı bölümü, sadece teknik gelişimi değil, doğaya ve çevreye duyarlı bireyler yetiştirmeyi de hedefler. Sürdürülebilir bir gelecek için sosyal sorumluluk projelerini destekler.
+
+TEMA VAKFI İŞ BİRLİĞİ VE BP ORMANI
+Bölümümüz, Türkiye'nin ormanlarını ve doğal zenginliklerini korumak amacıyla Tema Vakfı ile iş birliği içerisindedir. Bu kapsamda oluşturulan bir "BP Ormanı" bulunmaktadır. Bu orman, bölüm öğrencilerinin ve akademik kadronun doğaya bıraktığı kalıcı bir mirastır.
+
+BAĞIŞ BİLGİLERİ
+Öğrenciler ve paydaşlar, yeşil bir geleceğe katkı sağlamak için aşağıdaki resmi bağış linki üzerinden destek olabilirler:
+Link: https://www.tema.org.tr/bagislar
+
+MESAJ
+Unutmayın ki küçük bir destek bile büyük değişimlere yol açabilir. Birlikte, daha yeşil bir geleceğe adım atıyoruz!
+
+
+İSTANBUL KÜLTÜR ÜNİVERSİTESİ BİLGİSAYAR PROGRAMCILIĞI ETKİNLİK BİLGİLERİ
+
+GENEL BİLGİ
+Bölüm, öğrencilerin sektörle tanışmasını destekler. Etkinlikler genellikle Ataköy Yerleşkesi B1 katında yer alan Tasarım Fabrikası’nda düzenlenir.
+
+Yapay Zeka İle Kodun Geleceği Etkinliği
+Konuk: Caner Şekerci
+Unvan: CNR AI HUB Kurucusu ve CEO, Microsoft Yapay Zekâ Uzmanı.
+Konu: Yapay zekâ teknolojileri, sektör deneyimleri ve geleceğin yazılım dünyası.
+Yıl: 2025
+
+Bir Yazılımcının Yol Haritası Etkinliği
+Konuk: Murat Yücedağ 
+Unvan: Yazılım Mühendisi ve Eğitmen.
+Konu: Yazılım kariyeri, sektör deneyimleri ve kişisel gelişim.
+Yıl: 2024
+
+KAZANIMLAR
+Öğrenciler sektör profesyonelleriyle tanışma, güncel teknolojileri takip etme ve kariyer planlaması fırsatı elde eder.
+
+SOSYAL MEDYA VE İLETİŞİM
+Bölümün güncel duyurularını, etkinlik görsellerini ve öğrenci projelerini takip etmek için resmi Instagram hesabını kullanabilirsiniz.
+Instagram Hesabı:@ikuprogrammer
+ 
+Komisyonlarımız
+ 
+
+Komisyon Adı
+
+
+Komisyon Üyeleri
+
+
+Görev / İşin Kısa Tanımı
+
+
+Unitime Sorumluları
+
+
+ 
+Öğr. Gör. Muharrem Altunışık,
+
+            Öğr. Gör. Hamiyet Büşra Bozoğlu
+ 
+
+
+Bilgisayar Programcılığı programının dönemlik ders takvimi ve derslik ayarlamalarında veri girişlerini sağlamak.
+
+
+
+Burs Komisyonu
+
+
+ 
+Öğr. Gör. Erdem Yücesan
+
+            Öğr. Gör. Muharrem Altunışık
+ 
+
+
+ 
+Üniversitenin burs yönergeleri   doğrultusunda burs verilecek öğrencilerin değerlendirilmesini sağlamak,   eşgüdümlü çalışmak, alınan kararların öğrenci işlerine iletilmesi sürecini   yürütmek.
+
+
+
+
+Staj Komisyonu
+
+
+ 
+Öğr. Gör. Erdem Yücesan
+
+            Öğr.Gör. Hamiyet Büşra Bozoğlu
+ 
+
+
+ 
+Bilgisayar Programcılığı   Programında yer alan İşyeri Eğitimi / Staj süreçlerinin   planlanması, yürütülmesi, değerlendirilmesi ve raporlanmasını sağlamak.   İşletmelerle koordinasyon kurmak; staj defteri, rapor ve değerlendirmeleri   incelemek.
+
+
+
+
+Çift Anadal Koordinatörlüğü
+
+
+Öğr. Gör. Erdem Yücesan
+
+
+ 
+Bilgisayar Programcılığı   öğrencilerinin İKÜ içindeki diğer programlarda ÇAP yapma süreçlerini   yürütmek; uygunluk, ders içerikleri ve muafiyet konularında öğrenciye destek   sağlamak; akademik danışmanlık vermek.
+
+
+
+
+Yatay Geçiş – İntibak ve Muafiyet Komisyonu
+
+
+Öğr. Gör. Erdem Yücesan
+
+
+ 
+YÖK, İKÜ ve MYO yönergelerine   göre yatay geçiş, dikey geçiş ve muafiyet başvurularının incelenmesi; ders   içeriklerinin eşdeğerlik analizinin yapılması; intibak programının   oluşturulması ve öğrenciye bildirilmesi.
+
+
+
+
+Mezuniyet Komisyonu
+
+
+ 
+Öğr. Gör. Erdem Yücesan
+
+            Öğr. Gör. Muharrem Altunışık
+
+            Öğr. Gör. Hamiyet Büşra Bozoğlu
+ 
+
+
+ 
+Öğrencilerin mezuniyet   koşullarını yerine getirip getirmediğini kontrol etmek; eksik ders, AKTS,   staj veya diğer gereksinimleri denetlemek; mezuniyet listelerinin   hazırlanması ve MYO yönetimine sunulması.
+
+
+
+
+Tanıtım Komisyonu
+
+
+ 
+Öğr. Gör. Erdem Yücesan
+
+            Öğr. Gör. Muharrem Altunışık
+
+            Öğr. Gör. Hamiyet Büşra Bozoğlu
+ 
+
+
+Programın tanıtım   faaliyetlerini yürütmek; üniversite tanıtım günleri, lise ziyaretleri, açık   günler ve sosyal medya içeriklerinde programın görünürlüğünü artırmak; dış   paydaşlarla iletişimi güçlendirmek.
+
+
+
+
+Program Kalite Komisyonu
+
+
+ 
+ 
+Öğr. Gör. Erdem Yücesan
+
+            Öğr. Gör. Muharrem Altunışık
+
+            Öğr. Gör. Hamiyet Büşra Bozoğlu
+
+            Zübeyde Ela Görgün (Öğrenci)
+ 
+
+
+MYO Kalite Komisyonu ile   koordineli çalışarak programın kalite güvence süreçlerinin uygulanmasını,   kendini değerlendirme raporlarının hazırlanmasını, ölçme–değerlendirme ve   PUKÖ süreçlerinin yürütülmesini sağlamak.
+
+
+Erasmus – Farabi – Mevlana Koordinatörü
+
+
+Dr. Öğr. Üyesi Kübra Mertel Öztürk
+
+
+ 
+Öğrencilerin   ulusal/uluslararası değişim programlarından yararlanmasına yönelik   bilgilendirme yapmak; başvuru, ders seçimi, eşdeğerlik ve dönüş süreçlerini   yönetmek; koordinatörlük ile program arasında iletişimi sağlamak.
+ 
+
+
+Spor – Kültür – Sanat Etkinlikleri Komisyonu
+
+
+ Öğr. Gör. Erdem Yücesan
+
+            Öğr. Gör. Hamiyet Büşra Bozoğlu
+
+
+Öğrencilerin kültürel, sanatsal   ve sportif etkinliklere katılımını artırmak; bölüm içi etkinlikleri   planlamak; üniversite SKS birimi ile koordineli çalışmak; öğrencilerin sosyal   gelişimine katkı sağlayacak etkinlikleri yürütmek.
+
+
+
+Sosyal Medya ve Öğrenci Faaliyetleri Komisyonu
+
+
+ Öğr. Gör. Erdem Yücesan
+
+            Öğr. Gör. Hamiyet Büşra Bozoğlu
+
+            Zübeyde Ela Görgün (Öğrenci)
+
+            Ecenur Çelik (Öğrenci)
+
+
+Programın web sayfası ve sosyal medya hesaplarının güncellenmesi; etkinlik duyurularının yapılması; öğrenci   projelerinin paylaşılması; öğrenci toplulukları ve sınıf temsilcileri ile koordinasyon sağlanması.
+
+[Aday Öğrenci Rehberi - Kazanılan Derece ve Çalışma Şekli]
+Kazanılan Derece: 2 yıllık eğitim planında yer alan bütün dersleri başarıyla tamamlayan, en az 120 AKTS'ye sahip öğrencilere Bilgisayar Programcılığı alanında ön lisans derecesi verilir.
+Eğitim Şekli: Eğitim yüz yüze gerçekleştirilmektedir. Bazı dersler CATS Platformu Meetings üzerinden asenkron ve senkron şekilde gerçekleştirilebilmektedir.
+ 
+Yerleşme Şartları
+Merkezî Yerleştirmede adaylar Bilgisayar Programcılığı  Programına, TYT puanları, yükseköğretim programları ile ilgili tercihleri ve bu programların kontenjan ve koşulları göz önünde tutularak ÖSYM’ce yerleştirilir. Bilgisayar Programcılığı Programına yerleştirilen öğrencilerin kayıtları ÖSYM’nin belirlediği takvim çerçevesinde Öğrenci İşleri Daire Başkanlığı tarafından yapılır.  
+Bu bölümde okumak isteyen öğrencilerin;
+Analitik ve sistemli düşünme gücüne sahip,
+Teknolojideki hızlı gelişmeleri izleyip onlara uyum sağlayabilen,
+Yeniliklere açık ve araştırmacı,
+Bir konuda verilerin çözümlenmesi için yapılması gereken işlemleri kavrayıp, bunu bilgisayar ortamına aktarabilen kimseler olmaları gerekir.   
+
+KONTENJAN VE PUAN TABLOSU
+İstanbul Kültür Üniversitesi Bilgisayar Programcılığı programı için 2025 yılı kontenjan ve başarı sıralamaları bilgileri şöyledir:
+- %100 Tam Burslu Kontenjan: 13 kişi (Başarı Sırası: 316.848, Puan: 363.953)
+- %50 İndirimli Kontenjan: 70 kişi (Başarı Sırası: 1.243.618, Puan: 270.53)
+- Ücretli Kontenjan: 15 kişi (Başarı sırası ve puan bilgisi bulunmamaktadır.)
+ÖNEMLİ: Bölümde toplam 3 farklı kontenjan türü (%50 indirimli, ücretli ve tam burslu) bulunmaktadır.
+
+ÜCRET BİLGİLERİ
+İstanbul Kültür Üniversitesi Bilgisayar Programcılığı programı için 2025 yılı ücretleri, ödeme şekline ve indirimlere göre aşağıdaki gibidir:
+ %50 Burslu Ücretler
+- %50 Burslu: 252.500 ₺
+- %50 Burslu + İlk Tercih İndirimi ile Birlikte: 214.625 ₺
+- %50 Burslu + Anlaşmalı Kurum İlk Tercih İndirimi ile Birlikte: 189.375 ₺
+- %50 Burslu + Peşin Ödeme İndirimi (%10) ile birlikte: 227.250 ₺
+- %50 Burslu + Peşin Ödeme İndirimi (%10) + İlk Tercih İndirimi ile Birlikte : 193.162 ₺
+- 50 Burslu + Peşin Ödeme İndirimi (%10) + Anlaşmalı Kurum İlk Tercih İndirimi ile Birlikte : 170.438 ₺
+
+ Ücretli (Burssuz) Ücretler
+- Ücretli: 505.000 ₺ 
+- İlk Tercih İndirimi ile Birlikte: 429.250 ₺
+- Anlaşmalı Kurum İlk Tercih İndirimi ile Birlikte: 378.750 ₺
+- Peşin Ödeme İndirimi (%10) ile birlikte: 454.500 ₺
+- Peşin Ödeme İndirimi (%10) + İlk Tercih İndirimi ile Birlikte: 386.325 ₺
+- Peşin Ödeme İndirimi (%10) + Anlaşmalı Kurum İlk Tercih İndirimi ile Birlikte: 340.875 ₺
+
+Ek İndirimler
+Ücretli ve %25 indirimli kontenjanlar için ayrıca şu indirimler uygulanabilir:
+Ebeveyn meslek indirimi: %10
+İKÜ mezun indirimi: %15
+Aynı anda iki kardeş okuma indirimi: %10
+Kültür Koleji mezun indirimi: %15
+
+Detaylı Bilgi
+Daha fazla bilgi için:
+https://aday.iku.edu.tr/ucret-hesaplama
+
+Çift Anadal (ÇAP)
+Birinci ana dal önlisans diploma programının en erken 1. sınıfın ikinci döneminin başında, en geç ise 2. sınıfın başında başvurabilir. 
+Başvuru için genel not ortalamanın en az 2.72 (100 üzerinden en az 70) olması gerekir. Ayrıca öğrencinin çift anadal programından mezun olabilmesi için birinci anadal programındaki genel not ortalamasının (GNO’sunun) 4.00 üzerinden en az 2.72 olması gerekir. ÇAP başvuruları Orion üzerinden yapılır.
+
+Bilgisayar Programcılığı programı öğrencileri aşağıdaki programlarda çift anadal (ÇAP) yapabilir:
+ 
+Alternatif Enerji Kaynakları
+ 
+E-Ticaret
+ 
+Elektronik Teknolojisi
+ 
+Optisyenlik
+ 
+Çocuk Gelişimi
+ 
+İklimlendirme ve Soğutma Teknolojisi
+ 
+İnşaat Teknolojisi
+ 
+Radyo ve Televizyon Teknolojisi
+ 
+Uçak Teknolojisi
+ 
+Uçuş Harekât Yöneticiliği
+ 
+Bankacılık ve Sigortacılık
+ 
+Büro Yönetimi ve Yönetici Asistanlığı Programı
+ 
+Dış Ticaret
+ 
+Grafik Tasarımı
+ 
+Halkla İlişkiler ve Tanıtım
+ 
+Hava Lojistiği
+ 
+İşletme Yönetimi
+ 
+Lojistik
+ 
+Moda Tasarımı
+ 
+Sağlık Kurumları İşletmeciliği
+ 
+Sivil Hava Ulaştırma İşletmeciliği
+ 
+Sivil Havacılık Kabin Hizmetleri
+ 
+Tıbbi Dokümantasyon ve Sekreterlik
+ 
+Turizm ve Otel İşletmeciliği
+
+Yandal
+Bölümde yandal yapılmamaktadır.
+
+Mezuniyet Koşulları
+Programda mevcut olan toplam 120 AKTS karşılığı derslerin tümünü başarıyla tamamlamak için 4.00 üzerinden en az 2.00 ağırlıklı not ortalaması elde etmek gerekir.
+
+Uluslararası İşbirliği
+Üniversitemizin ERASMUS ofisi vasıtasıyla, başarılı öğrencilerimizin Erasmus öğrenci hareketliliği ve Erasmus öğrenci staj hareketliliği programları ile yurtdışına gitmelerine fırsat verilmektedir. 
+
+ 
+Mezunların İstihdam Profilleri
+Mezunlarımız başta iletişim ve finans kuruluşları olmak üzere  tüm kurum ve kuruluşların bilgi teknolojileri ve alt yapısının projelendirilmesinde, kurulumunda, işletilmesinde, teknik servis hizmetlerinde, yazılım ve web tasarım şirketlerinde; tekniker, teknik destek uzmanı, sistem uzmanı, yazılımcı uzman ve orta kademe yönetici olarak çalışmaktadırlar.
+
+ 
+Üst Derece Programlara Geçiş Mezunlarımız DGS sınavı ile 4 yıllık fakültelerin  
+
+Bilgisayar Bilimleri                                                
+
+Bilgisayar Mühendisliği                                       
+
+Bilgisayar ve Öğretim Teknolojileri Öğretmenliği   
+
+Bilişim Sistemleri Mühendisliği                             
+
+Bilişim Sistemleri ve Teknolojileri                      
+
+İstatistik                                                              
+
+İstatistik ve Bilgisayar Bilimleri                               
+
+Matematik ve Bilgisayar Bilimleri                            
+
+Yazılım Mühendisliği                                               
+
+Yönetim Bilişim Sistemleri                                     
+
+Lisans Programları'na Dikey Geçiş Sınavı(DGS) ile dikey geçiş yapabilirler.
+
+
+Sunulan Olanaklar
+Bilgisayar Programcılığı programında derslerimiz en yeni teknolojilerle donatılmış bilgisayar laboratuarlarında, en güncel programlar kullanılarak, proje ve ödev uygulamaları ağırlıklı, sektör deneyimi olan öğretim elemanı kadromuzla yapılmaktadır. Ayrıca 40 işgünü zorunlu staj uygulamamızla öğrencilerimiz okulda öğrendiklerinin  piyasalardaki  uygulamalarını öğrenme imkanı bulmaktadırlar.
+
+        
+Program Etkinlikleri 
+Eğitim dönemimizde piyasalardaki önemli kurum ve kuruluş yetkilileri ile görüşerek onlarla öğrencilerimizi bilgilendirecek seminer ve konferanslar düzenlemekteyiz. Ayrıca uzman yetkililerden 2 yıllık mezunların bilişim sektöründeki istihdam koşullarını ve elemanlarında aradıkları nitelikleri  öğrencilerimize anlatmalarını ve aydınlatmalarını istiyoruz. Hedefimiz bu kuruluşlarla ortak projelerde yer alarak öğrencilerimizi aranan elemanlar olarak mezun etmek olacaktır.
+
+Program Başkanı:
+
+Muharrem Altunışık — m.altunisik@iku.edu.tr
+
+2. Sınıf Danışmanı:
+
+Erdem Yücesan — e.yucesan@iku.edu.tr
+
+Öğretim Görevlisi:
+
+Hamiyet Büşra Bozoğlu — h.bozoglu@iku.edu.tr
+
+Sekreterlik:
+TBMYO: 0212 498 49 61
+
+Eğitim Kalitesi ve Akreditasyon (MEDEK)
+Kalite Tescili: İstanbul Kültür Üniversitesi Bilgisayar Programcılığı, MEDEK (Mesleki Eğitim Değerlendirme ve Akreditasyon Derneği) tarafından akredite edilmiş bir programdır.
+
+Geçerlilik Tarihi: Programın bu kalite akreditasyonu 01 Ocak 2026 – 31 Aralık 2027 tarihleri arasını kapsamaktadır.
+
+Öğrenciye Faydası: Bu akreditasyon, aldığın eğitimin ulusal kalite standartlarını karşıladığını, öğretim süreçlerinin ve ölçme-değerlendirme uygulamalarının sürekli iyileştirildiğini tescil eder.
+
+ERASMUS
+Bilgisayar Programcılğı Programı kapsamında anlaşmalı bir partner üniversitemiz bulunmamaktadır. Dolayısı ile ilgili program öğrencileri Erasmus+ Öğrenim Hareketliliğinden yararlanamamaktadır. Fakat öğrenciler dilerse Erasmus+ Staj Hareketliliği programından yararlanabilirler. İstersen Erasmus+ Staj Hareketliliği programı hakkında daha fazla bilgi verebilirim!

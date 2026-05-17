@@ -1,0 +1,24 @@
+İKÜ DİJİTAL SİSTEMLER VE KULLANIM REHBERİ (CATS, PUMA, ORION)
+
+[CATS SİSTEMİ]
+Nedir: Ders Yönetim Sistemi (Notlar, Ödevler, Online Dersler).
+Giriş: cats.iku.edu.tr adresine UNIPASS şifresiyle girilir.
+Online Ders: Ders sayfasına girildiğinde sol menüde Meetings kısmı mevcut. Ders saatinde oraya tıklanarak katılım sağlanır.
+Ödev Yükleme:Dersin içindeki 'Ödevler' sekmesine tıkla, dosyanı sürükle veya linki bırak ve 'Gönder' de.
+
+[PUMA UYGULAMASI]
+Nedir:İKÜ Mobil Uygulaması (Kulüpler, Yemekhane, Servis Saatleri, Yoklama).
+Rozetler:cÖğrencilerin kampüs etkinliklerine katılımları, kulüp üyelikleri veya uygulama içindeki belirli görevleri tamamlamaları karşılığında kazandıkları, sosyal aktiflik düzeylerini belgeleyen ve Yetkinlik Haritası'nı zenginleştiren dijital başarı sembolleridir.
+Yemek Listesi:PUMA -> MY IKU sekmesinin alt kısmında yer alır.
+Kulüp Kayıt:PUMA'yı aç -> 'Kulüpler' sekmesine git -> İstediğin kulübü bul ve 'Üye Ol' butonuna bas.
+Servis Saatleri: PUMA'yı aç -> MY IKU kısmına tıklayıp, sayfanın altına doğru indiğinde servis saatlerini görebilirsin.
+Yoklama:PUMA'yı aç -> MY IKU kısmına tıklayıp, sayfanın altına doğru indiğinde yoklamalarını görebilirsin. Böylece rahatça derslerdeki devam durumunu takip edebilirsin.
+Ders Programı:PUMA'yı aç -> MY IKU kısmına tıklayıp, sayfanın altına doğru indiğinde haftalık ve günlük ders programını görebilirsin.
+
+[ORION SİSTEMİ]
+Nedir: Öğrenci Bilgi Sistemi (Resmi İşlemler).
+Nasıl Giriş Yapılır:İKÜ ORION sistemine giriş; web tarayıcısı üzerinden 'orion.iku.edu.tr' adresine gidilerek, Kullanıcı Adı kısmına öğrenci numarası ve şifre kısmına ise UNIPASS parolası yazılarak gerçekleştirilir. Ayrıca PUMA MY IKU sekmesinde Orion ve CATS kısayolu bulunur.
+Ders Seçimi:Akademik takvimde açıklanan tarihte Orion uygulaması üzerinden ödeme,kayıt yenileme, ders seçim sekmesi -> Ders seçimi. Unutma kayıt sepetine eklediğin dersler gün sonu sepetinden silinir! 
+Sınav Tarihleri:Orion uygulaması üzerinden akademik işlemler sekmesi -> Sınavlarım
+Sınav Sonuçları:Orion uygulaması üzerinden akademik işlemler sekmesi -> Sonuçlarım
+Transkript:Öğrencinin eğitim hayatı boyunca aldığı tüm dersleri, harf notlarını ve Genel Not Ortalamasını (GNO) gösteren resmi belgedir; staj, iş başvurusu veya yatay geçiş işlemleri için Orion sistemi Belge Talebi Bilgileri sekmesinden temin edilebilir.

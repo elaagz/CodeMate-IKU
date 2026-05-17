@@ -1,0 +1,267 @@
+
+    /* TÜM SAYFANIN ANA AYARLARI */
+    .stApp {
+        background-color: #121212; 
+        color: #f1f3f5;
+        font-family: 'Helvetica Neue', 'Roboto', sans-serif;
+    }
+
+    /* BAŞLIKLAR VE FONT TASARIMI */
+    .stTitle, h1, h2, h3, h4, h5 { 
+        font-weight: 700 !important;
+        letter-spacing: -0.5px;
+    }
+
+    /* STREAMMLIT ÜST BAR */
+    [data-testid="stHeader"] {
+    background-color: #121212 !important;
+    }
+
+    [data-testid="stToolbar"] {
+    background-color: #121212 !important;
+    }
+
+    .stTitle {
+        font-size: 2.8rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    /* ALT BAŞLIK*/
+    .stCaption {
+        color: #b0b0b0; 
+        font-size: 1.1rem !important;
+        font-weight: 400 !important;
+        letter-spacing: 0px !important;
+    }
+
+    hr {
+        border-top: 1px solid #333333;
+        margin: 1rem 0 !important;
+    }
+
+a.anchor-link {
+    display: none !important;
+}
+
+[data-testid="stHeaderActionElements"] {
+    display: none !important;
+}
+
+h1 a, h2 a, h3 a {
+    display: none !important;
+}
+
+    /* BUTON TASARIMLARI */
+    /* Secondary Buton */
+    div.stButton > button {
+        border-radius: 12px;
+        height: 3.2em;
+        font-weight: 600;
+        border: 1px solid #333333;
+        background-color: #1e1e1e; 
+        color: #f1f3f5;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    /* Primary Buton */
+    div.stButton > button[kind="primary"] {
+        background-color: #e63946;
+        border: 1px solid #e63946;
+        color: white;
+    }
+
+    /* Buton Üzerine Gelince Efekt (Hover) */
+    div.stButton > button:hover {
+        transform: translateY(-3px); 
+        box-shadow: 0 6px 15px rgba(230, 57, 70, 0.3); 
+        border-color: #e63946;
+    }
+    
+    div.stButton > button[kind="primary"]:hover {
+        background-color: #cf2e3a; 
+        border-color: #cf2e3a;
+    }
+
+    /* SOHBET BALONLARI VE CHAT TASARIMI */
+    /* Botun Mesaj Alanı */
+    [data-testid="stChatMessage"] {
+        border-radius: 18px;
+        margin-bottom: 15px;
+        border: none ;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    /* Sohbet Input Alanı */
+    [data-testid="stChatInput"] > div {
+        border-radius: 25px;
+        border: 1px solid #333333;
+    }
+             
+    [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    max-width: 75% !important;
+    background-color: #1e1e1e !important;
+    border: 1px solid #2a2a2a !important;
+}
+
+    [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarAssistant"]) {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+    max-width: 75% !important;
+    background-color: #1e1e1e !important;
+}
+            
+    [data-testid="stChatMessageAvatarUser"] {
+    display: none !important;
+}
+
+   [data-testid="stChatMessageAvatarAssistant"] {
+    display: none !important;
+}
+
+    [data-testid="stChatMessageContent"] {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+    /* SİDEBAR TASARIMI */
+    [data-testid="stSidebar"] {
+        background-color: #1a1a1a;
+        border-right: 1px solid #2a2a2a;
+    }
+    
+    [data-testid="stSidebar"] hr {
+        border-top: 1px solid #2a2a2a;
+    }
+    
+    /* SIDEBAR BUTONLARI */
+    section[data-testid="stSidebar"] button {
+        background: #1a1a1a !important;
+        color: #f1f3f5 !important;
+        border: 1px solid #333333 !important;
+        border-radius: 12px !important;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+        height: 52px !important;
+        min-height: 52px !important;
+        padding-left: 10px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important; 
+        transition: all 0.2s ease-in-out !important;
+    }
+
+    section[data-testid="stSidebar"] button:hover,
+    section[data-testid="stSidebar"] button:focus {
+        background: #2a2a2a !important;
+        border: 1px solid #444444 !important;
+        color: #ffffff !important;
+    }
+
+/* SIDEBAR AÇIKKEN SABİT GENİŞLİK */
+section[data-testid="stSidebar"][aria-expanded="true"] {
+    width: 330px !important;
+    min-width: 330px !important;
+    max-width: 330px !important;
+    background-color: #1a1a1a !important;
+    border-right: 1px solid #2a2a2a !important;
+}
+
+/* SIDEBAR AÇIKKEN GENİŞLİK */
+section[data-testid="stSidebar"][aria-expanded="true"] > div {
+    width: 330px !important;
+    min-width: 330px !important;
+    max-width: 330px !important;
+}
+
+/* SIDEBAR KAPANINCA ANA EKRANI KAYDIRMA */
+section[data-testid="stSidebar"][aria-expanded="false"] {
+    width: 0px !important;
+    min-width: 0px !important;
+    max-width: 0px !important;
+}
+
+/* KULLANICI MODU BUTONU SABİTLEME */
+.fixed-user-box {
+    position: fixed !important;
+    bottom: 16px !important;
+    left: 15px !important;
+    width: 300px !important;
+
+    background-color: #1e1e1e;
+    color: #f1f3f5;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid #333333;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    z-index: 9999;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+section[data-testid="stSidebar"][aria-expanded="false"] .fixed-user-box {
+    display: none !important;
+}
+
+.fixed-user-icon {
+    font-size: 20px;
+}
+
+html,
+body,
+.stApp,
+[data-testid="stAppViewContainer"],
+[data-testid="stBottom"],
+[data-testid="stBottom"] > div,
+[data-testid="stBottomBlockContainer"],
+[data-testid="stBottomBlockContainer"] > div,
+[data-testid="stBottomBlockContainer"] > div > div {
+    background-color: #121212 !important;
+}
+
+div:has(> [data-testid="stChatInput"]),
+div:has([data-testid="stChatInput"]) {
+    background-color: #121212 !important;
+}
+
+/* CHAT INPUT DIŞ ALANI */
+[data-testid="stChatInput"] {
+    background-color: #121212 !important;
+}
+
+/* INPUT KUTUSu */
+[data-testid="stChatInput"] > div {
+    background-color: #2b2b35 !important;
+    border: 1px solid #333333 !important;
+    border-radius: 25px !important;
+}
+
+/* YAZI YAZILAN ALAN */
+[data-testid="stChatInput"] textarea {
+    background-color: #2b2b35 !important;
+    color: #f1f3f5 !important;
+}
+
+/* PLACEHOLDER */
+[data-testid="stChatInput"] textarea::placeholder {
+    color: #b0b0b0 !important;
+}
+/* STREAMLIT FULLSCREEN BUTONUNU KÖKTEN KAZIMA HİLESİ */
+[data-testid="StyledFullScreenButton"],
+[data-testid="stImage"] [data-testid="StyledFullScreenButton"],
+.stImage button {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    z-index: -9999 !important;
+}

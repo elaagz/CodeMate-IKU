@@ -1,0 +1,8 @@
+streamlit
+python-dotenv
+langchain-huggingface
+langchain-chroma
+langchain-google-genai
+requests
+beautifulsoup4
+sentence-transformers 

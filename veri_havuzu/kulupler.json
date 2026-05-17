@@ -1,0 +1,411 @@
+{ "kulupler": [
+    {
+      "ad": "Akademik Araştırmalar Kulübü",
+      "ozellik": "Öğrencilerin akademik gelişimine destek olur; bilimsel okuma, makale yazma ve araştırma metodolojileri üzerine atölyeler düzenler.",
+      "anahtar_kelimeler": ["akademik", "araştırma", "bilimsel", "makale", "tez","Sunum ve iletişim","yaratıcı fikirler","araştırma yöntemleri","literatür taraması","akademik yazım","araştırma projeleri","akademik kariyer","bilimsel etkinlikler","akademik topluluk","akademik seminerler","akademik atölyeler","akademik danışmanlık"]
+    },
+
+
+    {
+      "ad": "AKUT Öğrenci Topluluğu",
+      "ozellik": "Doğal afetlere karşı farkındalık yaratan ve gönüllü kurtarma çalışmalarıyla topluma katkı sağlayan bir topluluk. Afet bilinci, ilk yardım ve arama kurtarma teknikleri üzerine eğitimler verir.",
+      "anahtar_kelimeler": ["akut", "afet", "deprem", "kurtarma", "ilk yardım", "gönüllülük"," sosyal sorumluluk","afet bilinci","acil durum yönetimi","arama kurtarma teknikleri","ilkyardım eğitimi","gönüllü faaliyetler","afet tatbikatları","afet eğitimi","topluluk dayanışması"]
+    },
+
+
+    {
+      "ad": "Asimov Teknoloji Kulübü",
+      "ozellik": "Mühendisliği temel alarak projeler üreten, ürettiği projelerle ulusal ve uluslararası yarışmalara katılmayı hedefleyen bir öğrenci kulübüdür. Kulübümüz bir diğer amacı, İstanbul Kültür Üniversitesi'nde bir öğrenci hareketi oluşturmaktır.Robotik, yazılım, İHA ve teknoloji projeleri geliştirir. Kariyer etkinlikleri ve workshop'lar düzenler.",
+      "anahtar_kelimeler": ["yazılım", "kodlama", "robot", "teknoloji", "mühendislik", "bilgisayar", "yapay zeka", "workshop"]
+    },
+
+
+    {
+    "ad": "Atatürkçü Düşünce Kulübü",
+    "ozellik": "Kulübümüzün amacı; üniversitemizde bulunan Türk gençliğini Atatürkçülük çerçevesinde birleştirmek ve Atatürkçülüğü bilimsel bir temelle ele alarak yaygınlaştırmaktır. Milli değerlerimize sahip çıkmak, Atatürk ilke ve inkılaplarını anlamak ve anlatmak, bu doğrultuda etkinlikler düzenlemek kulübümüzün temel hedeflerindendir.Tarih, siyaset ve Atatürkçülük üzerine seminerler ve tartışma grupları düzenler.",
+    "anahtar_kelimeler": ["atatürk", "cumhuriyet", "tarih", "ilke", "düşünce", "siyaset", "bilinçlendirme","milli değerler", "inkılaplar", "öğrenci topluluğu","milli tarih","atatürk ilke ve inkılapları","tarih atölyesi","atatürkçülük tartışmaları","atatürkçülük etkinlikleri","atatürkçülük kulübü"]
+    },
+
+
+    {
+    "ad": "Bilişim ve Teknoloji Hukuku Kulübü",
+    "ozellik": "Dijital çağın hukuki boyutunu ele alarak bilişim ve teknolojiye dair yasal meselelerde farkındalık yaratan bir öğrenci kulübü. Bilişim hukuku, siber güvenlik ve dijital ticaret konularında seminerler ve atölyeler düzenler. ",
+    "anahtar_kelimeler": ["hukuk", "bilişim", "siber", "teknoloji", "veri", "e-ticaret", "bilişim hukuku","siber güvenlik","siber suçlar","bilişim hukuku eğitimi","siber güvenlik atölyesi","dijital hukuk seminerleri","veri koruma konferansları"]
+    },
+
+
+    {
+      "ad": "Blockchain Kulübü",
+      "ozellik": "Gelişen teknolojiler, blockhain ,nft metaverse, girişimcilik ve birçok alanda bilgi alabileceğiniz bir öğrenci kulübü.Blockchain teknolojisi ve kripto para birimleri hakkında bilgi edinmek, projeler geliştirmek ve sektördeki yenilikleri takip etmek isteyen öğrenciler için bir platform sağlar. Blockchain teknolojisi üzerine eğitimler, atölyeler ve proje geliştirme etkinlikleri düzenler.",
+      "anahtar_kelimeler": ["blockchain", "kripto para", "bitcoin", "ethereum","finans teknolojisi","dijital varlıklar","blokchain teknolojisi","blokchain uygulamaları","blokchain geliştirme","blokchain projeleri","blokchain eğitimi","blokchain kulübü","blokchain topluluğu","blokchain etkinliği","blokchain kariyeri"]
+    },
+
+
+    {
+    "ad": "Çevre Enerji Ve Sürdürülebilirlik Kulübü",
+    "ozellik": "İklim değişikliği, yenilenebilir enerji kaynakları ve çevre dostu sürdürülebilirlik projeleri geliştirir.",
+    "anahtar_kelimeler": ["çevre", "enerji", "sürdürülebilirlik", "iklim", "doğa", "yeşil"]
+    },
+
+
+    {
+      "ad": "Çizgi film ve Animasyon Kulübü",
+      "ozellik": "Çizgi film ve animasyon tutkunları için bir araya gelerek bu alanda projeler geliştiren ve etkinlikler düzenleyen bir kulüp.Çizgi film yapımı, animasyon teknikleri ve karakter tasarımı üzerine eğitimler verir. Öğrencilerin kendi projelerini geliştirmeleri için destek sağlar.Renkli ve yaratıcı bir ortam sunar. resim yapmayı, hikaye anlatımını ve dijital tasarımı seven öğrenciler için idealdir.",
+      "anahtar_kelimeler": ["çizgi film", "animasyon", "karakter tasarımı", "hikaye anlatımı", "grafik tasarım", "3D modelleme","2D animasyon","animasyon yazılımları","animasyon eğitimi","animasyon atölyesi","animasyon kulübü","animasyon topluluğu","animasyon etkinliği"]
+    },
+
+
+    {
+    "ad": "Dağcılık Kulübü",
+    "ozellik": "Tırmanış ve doğa sporları eğitimleri verir; teknik dağcılık ve zirve tırmanış gezileri düzenleyerek öğrencilere macera sunar.",
+    "anahtar_kelimeler": ["dağcılık", "tırmanış", "doğa", "spor", "kamp", "macera"]
+    },
+
+
+    {
+      "ad": "Dans Kulübü",
+      "ozellik": "Dans tutkunu öğrenciler için bir araya gelerek hem sanatı hem de eğlenceyi bir arada yaşatan renkli bir kulüp.Latin, Hip-hop ve halk dansları eğitimi verir. Yıl boyunca etkinliklerde yer alıp dans gösterileri düzenlerler.",
+      "anahtar_kelimeler": ["dans", "tango", "salsa", "hiphop", "performans","sahne","sanat","dans gösterisi","dans eğitimi","bale","dans kursu","dans çalışması","dans topluluğu","dans grubu","dans etkinliği","dans kulübü","dans topluluğu"]
+    },
+
+
+    {
+      "ad": "Deep Learning Kulübü",
+      "ozellik": "Derin öğrenme ve yapay zeka teknolojileri üzerine odaklanan, bu alanda projeler geliştiren ve eğitimler düzenleyen bir öğrenci kulübü.Yapay zeka ve derin öğrenme algoritmaları üzerine eğitimler verir. Proje geliştirme ve araştırma fırsatları sunar. Sektördeki yenilikleri takip etmek isteyen öğrenciler için idealdir. Derin öğrenme ve yapay zeka teknolojileri hakkında bilgi edinmek, projeler geliştirmek ve sektördeki yenilikleri takip etmek isteyen öğrenciler için bir platform sağlar. Derin öğrenme ve yapay zeka üzerine eğitimler, atölyeler ve proje geliştirme etkinlikleri düzenler. Sektörden isimleri davet ederek seminerler ve konferanslar düzenler.",
+      "anahtar_kelimeler": ["yapay zeka","yazılım","derin öğrenme", "makine öğrenimi", "veri bilimi", "algoritma","doğal dil işleme","yapay zeka projeleri","yapay zeka kariyeri"]
+    }
+
+
+    ,
+    {
+    "ad": "Dijital Dönüşüm Kulübü",
+    "ozellik": "Şirketlerin dijitalleşme süreçlerini, bulut teknolojilerini ve Endüstri 4.0 konularını inceleyen seminerler düzenler.",
+    "anahtar_kelimeler": ["dijital", "dönüşüm", "inovasyon", "teknoloji", "yönetim", "endüstri 4.0"]
+    },
+
+
+    {
+      "ad": "Doğa Yürüyüşleri Ve Kampçılık Kulübü",
+      "ozellik": "Düzenli olarak doğa yürüyüşleri (trekking) ve kamp etkinlikleri organize ederek öğrencilere yeni yerler keşfetme imkanı sunar.",
+      "anahtar_kelimeler": ["doğa", "kamp", "yürüyüş", "trekking", "macera", "sosyalleşme"]
+    },
+   
+
+    {
+      "ad": "E-Spor Kulübü",
+      "ozellik": "Dijital oyun dünyasına ilgi duyan ve profesyonel e-spor etkinliklerine katılmak isteyenler için heyecan verici bir kulüp.League of Legends, Valorant gibi oyunlarda turnuvalar ve takım çalışmaları düzenler.",
+      "anahtar_kelimeler": ["oyun", "game", "lol", "valorant", "turnuva", "bilgisayar oyunu", "rekabet","e-spor","gaming","takım","oyuncu","turnuva","multiplayer","video oyunu"]
+    },
+
+
+    {
+      "ad": "Ekonomi kulübü",
+      "ozellik": "İstanbul Kültür Üniversitesi Ekonomi Kulübü, farklı bölümlerden öğrencileri ortak ilgi alanlarında buluşturarak ekonomik, sosyal ve kültürel etkinliklerle analiz ve profesyonel gelişimlerine katkı sağlar. Seminerler, eğitimler, borsa etkinlikleri ve sektör iş birlikleriyle ekonomi alanına ilgi duyan öğrencilere deneyim ve fırsatlar sunar.",
+      "anahtar_kelimeler": ["ekonomi", "finans", "pazarlama", "yönetim","şirket ziyaretleri","iktisat","üretim yönetimi","proje yönetimi","kalite kontrol"]
+    } ,
+
+    
+    {
+      "ad": "English Literature Society Kulübü",
+      "ozellik": "İngiliz edebiyatını keşfetmek ve analiz etmek isteyen öğrenciler için bir araya gelerek kitap kulüpleri, tartışma grupları ve edebi etkinlikler düzenleyen bir kulüp. İngiliz edebiyatı üzerine okumalar yapar, tartışma grupları oluşturur ve edebi etkinlikler düzenler. İngiliz edebiyatına ilgi duyan öğrenciler için idealdir.",
+      "anahtar_kelimeler": ["ingiliz edebiyatı","kitap kulübü","Sunum ve iletişim","ingilizce konuşma","yabancı dil pratiği","dil becerileri","yazma atölyesi","okuma grubu","kültürel etkinlikler"]
+    },
+    {
+      "ad": "Erasmus Kulübü",
+      "ozellik": "Erasmus programına katılmak isteyen öğrencilere rehberlik eden, deneyimlerini paylaşan ve uluslararası kültürel etkinlikler düzenleyen bir kulüp.Erasmus deneyimlerini paylaşır, yurt dışı eğitim fırsatları hakkında bilgi verir ve kültürel etkinlikler düzenler.",
+      "anahtar_kelimeler": ["Erasmus", "yurt dışı eğitim", "kültürel değişim", "uluslararası", "yurt dışı", "dil öğrenme","kültürel etkinlikler","yurt dışı staj","yabancı dil pratiği","uluslararası öğrenci topluluğu","yurt dışı yaşam deneyimi","yurt dışı eğitim fırsatları","uluslararası projeler","yurt dışı eğitim danışmanlığı","uluslararası kariyer fırsatları"]
+    },
+    
+
+    {
+      "ad": "Etkili İletişim Kulübü",
+      "ozellik": "Öğrencilerin hitabet, beden dili, sunum ve müzakere becerilerini geliştirmeyi amaçlayan eğitimler ve atölyeler düzenler.",
+      "anahtar_kelimeler": ["iletişim", "hitabet", "sunum", "müzakere", "gelişim", "sosyal"]
+    },
+
+
+    {
+      "ad": "Felsefe Kulübü",
+      "ozellik": "Felsefi sorulara yanıt arayan, düşünce sistemlerini inceleyen ve felsefi tartışmalar düzenleyen bir öğrenci kulübü.Felsefi metinler okur, tartışma grupları oluşturur ve felsefi etkinlikler düzenler. Felsefeye ilgi duyan öğrenciler için idealdir.",
+      "anahtar_kelimeler": ["felsefe", "düşünce sistemleri", "felsefi tartışmalar","felsefi etkinlikler" ]
+    },
+
+
+    {
+      "ad": "Fotoğrafçılık Kulübü",
+      "ozellik": "Fotoğrafçılığa ilgi duyan öğrenciler için bir araya gelerek teknik eğitimler, fotoğraf gezileri ve sergiler düzenleyen bir kulüp.Fotoğrafçılık teknikleri üzerine eğitimler verir. Fotoğraf gezileri ve sergiler düzenler. Fotoğrafçılığa ilgi duyan öğrenciler için idealdir.",
+      "anahtar_kelimeler": ["fotoğraf","fotoğrafçılık"]
+    },
+
+
+    {
+      "ad": "Geek Kulübü",
+      "ozellik": "İKÜ Geek Kulübü: Kutu oyunu, frp, ve cosplay etkinlikleri düzenleyen bir kulüp amacimiz öğrencilerin eğlenip sosyallesmesidir. Geek kültürüne ilgi duyan öğrenciler için bir araya gelerek kutu oyunları, rol yapma oyunları (RPG) ve cosplay etkinlikleri düzenler. Bilim kurgu, fantastik edebiyat ve çizgi roman gibi alanlarda da etkinlikler yapar.",
+      "anahtar_kelimeler": ["geek", "bilim kurgu", "fantastik", "çizgi roman", "film", "kültür", "oyun", "cosplay", "RPG", "kutu oyunu", "sosyalleşme", "eğlence", "hobi", "takım", "yarışma", "turnuva"]
+    },
+   
+
+    {
+      "ad": "Genç Tema Kulübü",
+      "ozellik": "Toprak ve doğal varlıkları korumaya odaklanır; fidan dikme, çevre bilinci ve gönüllülük projeleri yürütür.",
+      "anahtar_kelimeler": ["TEMA", "çevre", "doğa", "fidan", "gönüllülük", "sürdürülebilirlik"]
+    },
+
+
+    {
+      "ad": "Gezi Kulübü",
+      "ozellik": "Türkiye'nin ve dünyanın farklı yerlerini keşfetmek isteyen, eğlenceler, partiler ve festivaller düzenleyerek öğrencilerin moral motivasyonunu yüksek seviyeye çıkaran eğlenceli ve keşif dolu geziler düzenleyen bir kulüp.Şehir içi ve dışı kültürel, doğa ve eğlence gezileri düzenler. Yeni yerler keşfetmek isteyen öğrenciler için idealdir.",
+      "anahtar_kelimeler": ["gezmek", "seyahat", "doğa", "kamp", "tarih", "sosyalleşme", "tur","keşif"]
+    },
+
+
+      {
+      "ad": "Girişimcilik ve İnovasyon Kulübü",
+      "ozellik": "Fikirden Girişime, Kültür'den Geleceğe diyerek çıktığımız bu yolculukta, özgün fikirleri gerçeğe dönüştürmek için buradayız! Burada eğlence var, öğrenme var, yenilik var! Sen de fikirlerini büyütmek, yeni insanlarla tanışmak ve girişimcilik dünyasında yerini almak istiyorsan, hemen aramıza katıl! Start-up fikirleri geliştirir, iş dünyası buluşmaları ve kariyer zirveleri düzenler. Öğrenci girişimciliğini destekler.",
+      "anahtar_kelimeler": ["iş", "para", "kariyer", "startup", "fikir", "ceo", "liderlik", "ekonomi","öğrenme","networking","girişimcilik","inovasyon","iş dünyası"]
+    },
+   
+
+    {
+      "ad": "Hayvanları Koruma Ve Yaşatma Kulübü",
+      "ozellik": "İKÜ Hayvanları Koruma ve Yaşatma Kulübü olarak, üniversitemizdeki can dostlarımızın tedavi, beslenme, kısırlaştırma ve sahiplendirilme süreçlerini gerçekleştiriyoruz. Orman beslemeleri yaparak doğal yaşamlarına katkıda bulunuyoruz. Bu çalışmalarımızı, bağış kermesleri ve sosyal sorumluluk projeleri ile sürdürüyoruz. Hayvan hakları, koruma ve barınak projeleri üzerine bilinçlendirme ve etkinlikler düzenler.",
+      "anahtar_kelimeler": ["hayvan", "koruma", "barınak", "sosyal sorumluluk", "bağış" ,"hayvan sevgisi","hayvan hakları","hayvan barınağı","hayvan besleme","hayvan tedavi","hayvan sahiplendirme","hayvan etkinlikleri"]
+    },
+   
+
+    {
+      "ad": "IEEE",
+      "ozellik": "Üyelerimize bilim ve teknoloji alanlarında yön gösterici olmayı hedefliyor, teknik anlamda çalışmalarına destek vererek ve kişisel gelişimlerine katkı sağlayarak mühendislik ruhunun gün geçtikçe daha da güçlenmesi için çalışıyoruz. Elektrik, elektronik, bilgisayar ve mühendislik alanlarında projeler geliştirir, teknik eğitimler ve seminerler düzenler.",
+      "anahtar_kelimeler": ["mühendislik", "elektrik", "elektronik", "bilgisayar", "teknik","proje geliştirme","teknoloji","inovasyon","teknofest","teknik eğitimler","mühendislik projeleri","elektrik mühendisliği","elektronik mühendisliği","bilgisayar mühendisliği"]
+    }, 
+    
+
+    {
+      "ad": "İKÜ Edebiyat Kulübü",
+      "ozellik": "Edebiyat klasikleri, güncel yazarlar ve şiir üzerine okuma, inceleme ve eleştiri toplantıları yaparak edebi kültürü zenginleştirir. Edebiyat severler için okuma grupları, şiir dinletileri ve yazar buluşmaları düzenler. ",
+      "anahtar_kelimeler": ["edebiyat", "kitap", "yazar", "şiir", "okuma", "sanat", "yazar", "kültür", "tartışma","okuma grubu","edebiyat semineri"]
+    },
+
+
+    {
+      "ad": "İKÜ Kadın Dayanışması",
+      "ozellik": "Toplumsal cinsiyet eşitliği, kadın hakları ve dayanışma konularında bilinçlendirme ve aktivizm çalışmaları yürütür.",
+      "anahtar_kelimeler": ["kadın", "dayanışma", "cinsiyet eşitliği", "hak", "aktivizm", "sosyal"]
+    },
+   
+
+    {
+      "ad": "İKÜ Roverium Kulübü",
+      "ozellik": "İKÜ Roverium olarak başta ERC (European Rover Challenge) olmak üzere çeşitli Rover yarışmalarına katılmak, uzay keşfi ve robotik teknolojileri alanında bilgi birikimini arttırıp üyelerimizi kişisel ve profesyonel gelişimlerini destekleyerek onları sektörün öncüleri arasında yer almaya hazırlamayı amaçlıyoruz. Robotik, uzay ve havacılık teknolojileri üzerine projeler geliştirir, yarışmalara katılır ve eğitimler düzenler.",
+      "anahtar_kelimeler": ["robotik", "uzay", "havacılık", "teknofest", "mühendislik", "yarışma", "proje","eğitim","teknoloji","inovasyon","araştırma","gelişim","teknofest","robotik projeleri","uzay teknolojileri","robotik atölyesi","uzay araştırmaları","havacılık projeleri"]
+    },
+
+
+    {
+      "ad": "İKÜ Sualtı Topluluğu",
+      "ozellik": "Su altı sporları (dalış, yüzme) eğitimleri verir, su altı yaşamı ve deniz koruma konularında farkındalık çalışmaları yapar.",
+      "anahtar_kelimeler": ["sualtı", "dalış", "yüzme", "deniz", "spor", "macera"]
+    },
+    {
+      "ad": "İKÜ Turizm ve Otel İşletmeciliği Kulübü",
+      "ozellik": "Turizm, otelcilik ve gastronomi sektörlerindeki güncel trendler üzerine geziler ve profesyonel buluşmalar düzenler.",
+      "anahtar_kelimeler": ["turizm", "otel", "gastronomi", "sektör", "işletme", "seyahat"]
+    },
+    
+
+    {
+      "ad": "IKU1337-Cybersecurity Society",
+      "ozellik": "Siber güvenlik, etik hackerlık ve ağ güvenliği konularında uygulamalı eğitimler verir, CTF (Capture The Flag) yarışmalarına katılır.",
+      "anahtar_kelimeler": ["siber güvenlik", "hacker", "bilişim", "yazılım", "güvenlik", "ağ"]
+    },
+
+
+    {
+      "ad": "IKUVENT Kulübü",
+      "ozellik": "Yenilikçi projeler ve etkinlikler düzenleyerek öğrencilerin girişimci ve yaratıcı potansiyellerini ortaya çıkarmayı hedefler.",
+      "anahtar_kelimeler": ["inovasyon", "girişim", "yaratıcılık", "proje", "etkinlik"]
+    },
+    
+
+    {
+      "ad": "İnsan Hakları Kulübü",
+      "ozellik": "Evrensel insan hakları, temel özgürlükler ve toplumsal adalet konularında bilinçlendirme ve aktivizm çalışmaları yapar.",
+      "anahtar_kelimeler": ["insan hakları", "adalet", "sosyal", "özgürlük", "aktivizm", "hukuk"]
+    },
+
+
+    {
+      "ad": "İşletme Kulübü",
+      "ozellik": "İşletme, pazarlama ve yönetim stratejileri alanında sektör profesyonelleriyle buluşmalar ve vaka analizleri yapar.",
+      "anahtar_kelimeler": ["işletme", "yönetim", "pazarlama", "strateji", "kariyer", "ekonomi"]
+    },
+
+
+    {
+      "ad": "Kalite Elçileri Kulübü",
+      "ozellik": "Kalite yönetimi ve standartlarına ilgi duyan öğrenciler için eğitimler ve sertifikalarla destek sağlayan bir topluluğuz. Üniversitemizin eğitim ve kampüs hayatında kalite süreçlerinin geliştirilmesini amaçlamaktayız. Kalite bilincini artırmak için seminerler ve atölyeler düzenler, kalite yönetim sistemleri üzerine çalışmalar yapar.",
+      "anahtar_kelimeler": ["kalite", "yönetim", "süreç", "iyileştirme", "kontrol", "farkındalık","süreç iyileştirme","kalite kontrol","kalite yönetim sistemi","kalite bilinci"]
+    },
+
+
+    {
+      "ad": "Kariyer Kulübü",
+      "ozellik": "Öğrencilerin kariyer hedeflerini belirlemesine yardımcı olur, CV hazırlama, staj ve iş arama süreçlerine destek verir.",
+      "anahtar_kelimeler": ["kariyer", "iş", "staj", "mülakat", "gelişim", "CV"]
+    },
+
+
+    {
+      "ad": "Kültür DJ & Production Academy Kulübü",
+      "ozellik": "DJ'lik teknikleri, müzik prodüksiyonu ve ses tasarımı üzerine eğitimler ve performans fırsatları sunar.",
+      "anahtar_kelimeler": ["müzik", "DJ", "prodüksiyon", "ses", "sahne", "eğitim"]
+    },
+
+
+    {
+      "ad": "Kültürel Değerleri Koruma Kulübü",
+      "ozellik": "Tarihi ve kültürel mirasın korunması, Anadolu gelenekleri ve sanatsal değerler üzerine geziler ve etkinlikler düzenler.",
+      "anahtar_kelimeler": ["kültür", "tarih", "sanat", "miras", "gezmek", "koruma"]
+    },
+
+
+    {
+      "ad": "Liderlik ve Yöneticilik Kulübü",
+      "ozellik": "Liderlik becerilerini geliştirmeye odaklanır, takım çalışması, motivasyon ve yöneticilik üzerine atölyeler düzenler.",
+      "anahtar_kelimeler": ["liderlik", "yönetim", "kişisel gelişim", "takım", "motivasyon", "kariyer"]
+    },
+
+
+    {
+      "ad": "Matematik Bilgisayar Kulübü",
+      "ozellik": "Matematik ve Bilgisayar Kulübü, matematik ve bilgisayar bilimlerini bir araya getirerek yazılıma odaklanan projeler ve etkinlikler düzenler. İş birliğini teşvik eden yapısıyla kodlama becerilerini geliştirir, teknolojideki güncel gelişmeleri takip ederek üyelerini geleceğe hazırlar.",
+      "anahtar_kelimeler": ["matematik", "bilgisayar", "bilim", "algoritma", "modelleme", "kodlama", "yazılım","programlama","veri yapıları","yapay zeka","makine öğrenimi","matematiksel modelleme","algoritma geliştirme","kodlama atölyesi"]
+    },
+
+
+    {
+      "ad": "Mezun İlişkileri Kulübü",
+      "ozellik": "Mezunlar ve öğrenciler arasında iletişim köprüsü kurar, kariyer mentorluk etkinlikleri ve buluşmalar organize eder.",
+      "anahtar_kelimeler": ["mezun", "kariyer", "mentorluk", "sosyal", "iş", "ağ", "network"]
+    },
+    
+
+    {
+      "ad": "Münazara Kulübü",
+      "ozellik": "Etkili konuşma, argümantasyon ve eleştirel düşünme becerilerini geliştirmek için münazara turnuvaları düzenler.",
+      "anahtar_kelimeler": ["münazara", "konuşma", "tartışma", "hitabet", "iletişim", "gelişim"]
+    },
+
+
+    {
+      "ad": "İKÜ Müzik Kulübü",
+      "ozellik": "Üniversitemize çeşitli alanlarda uzmanlaşmak amacı ile eğitim almak için gelen öğrencilerin müzik yeteneklerini keşfedip geliştirebilecekleri ortamı ve eğitim olanaklarını sunmaktır.Orkestra, koro ve sahne çalışmaları yapar. Yıl boyunca büyük ve küçük konserler düzenleyerek öğrencilere sahne deneyimi sunar.",
+      "anahtar_kelimeler": ["müzik", "enstrüman", "şarkı", "gitar", "piyano", "konser", "sanat", "sahne"]
+    },
+   
+
+    {
+      "ad": "Oyun Tasarlama ve Geliştirme Kulübü",
+      "ozellik": "Dijital oyunların tasarım, kodlama ve geliştirme süreçlerini öğretir; Game Jam etkinlikleri düzenler.",
+      "anahtar_kelimeler": ["oyun", "game", "tasarım", "kodlama", "yazılım", "geliştirme"]
+    },
+
+
+    {
+      "ad": "Pazarlama Kulübü",
+      "ozellik": "Dijital pazarlama, marka yönetimi, tüketici davranışları ve reklamcılık alanlarında workshop'lar ve sektör panelleri düzenler.",
+      "anahtar_kelimeler": ["pazarlama", "reklam", "marka", "dijital", "sosyal medya", "işletme","reklamcılık"]
+    },
+
+
+    {
+      "ad": "Psikoloji Kulübü",
+      "ozellik": "Psikolojinin farklı alanlarında (klinik, gelişim, sosyal) seminerler, film gösterimleri ve vaka analizleri düzenler.",
+      "anahtar_kelimeler": ["psikoloji", "terapi", "zihin", "gelişim", "klinik", "sosyal"]
+    },
+    
+
+    {
+      "ad": "Rockn' Culture Kulübü",
+      "ozellik": "Rock müziği kültürü, tarihçesi ve alt türleri üzerine dinleti ve tartışma etkinlikleri düzenler; amatör gruplara destek verir.",
+      "anahtar_kelimeler": ["rock", "müzik", "kültür", "konser", "dinleti", "sanat"]
+    },
+
+
+    {
+      "ad": "Sinema Kulübü",
+      "ozellik": "Kulübümüz, sinemaya ilgi duyan ve kültürel etkinliklerden keyif alan herkes için bir buluşma noktasıdır. Film günleri düzenliyor, açık hava sinemalarıyla keyifli akşamlar yaşatıyoruz. Ödüllü Quiz day etkinliklerimiz ve ayrıca sektörün önemli isimlerini davet ederek merak ettiğimiz soruları sorabiliyoruz. Ayrıca, her yıl düzenlediğimiz Sinekültür Kısa Film Yarışması/Festivali ile genç sinemacılara eserlerini geniş kitlelere ulaştırma fırsatı sunuyoruz.Kulübümüz, sinema tutkunlarını bir araya getirerek film kültürünü yaymayı ve sinema sanatını desteklemeyi amaçlar. Film gösterimleri, tartışma grupları ve kısa film yarışmaları düzenler.",
+      "anahtar_kelimeler": ["film", "sinema", "dizi", "yönetmen", "senaryo", "kamera", "gösterim"]
+    },
+    
+
+    {
+      "ad": "Sanat & Sepet Topluluğu",
+      "ozellik": "El sanatları, resim, seramik gibi farklı sanat dallarında uygulamalı atölyeler ve yaratıcı hobi etkinlikleri düzenler.",
+      "anahtar_kelimeler": ["sanat", "atölye", "el sanatları", "resim", "hobi", "yaratıcılık"]
+    },
+  
+
+    {
+      "ad": "Sosyal Sorumluluk Kulübü",
+      "ozellik": "İhtiyaç sahiplerine yönelik yardım projeleri geliştirir, farkındalık yaratan ve topluma fayda sağlayan gönüllülük çalışmaları yürütür.",
+      "anahtar_kelimeler": ["sosyal sorumluluk", "gönüllülük", "yardım", "toplum", "aktivizm", "farkındalık"]
+    },
+
+
+    {
+      "ad": "Steam Kulübü",
+      "ozellik": "Bilim, Teknoloji, Mühendislik, Sanat ve Matematik (STEAM) alanlarını birleştirerek disiplinler arası projeler yürütür.",
+      "anahtar_kelimeler": ["bilim", "teknoloji", "sanat", "matematik", "mühendislik", "eğitim"]
+    },
+
+
+    {
+      "ad": "Teknofest Kulübü",
+      "ozellik": "Teknofest yarışmalarına katılacak takımları organize eder, İHA, roket, robotik gibi alanlarda teknik destek sağlar.",
+      "anahtar_kelimeler": ["teknofest", "yarışma", "mühendislik", "havacılık", "drone", "roket"]
+    },
+
+
+    {
+      "ad": "Teknoloji Kulübü",
+      "ozellik": "Tüm öğrencilere yönelik temel teknoloji, yazılım ve donanım konularında bilgilendirici etkinlikler ve workshop'lar düzenler.",
+      "anahtar_kelimeler": ["teknoloji", "yazılım", "donanım", "bilişim", "workshop", "eğitim"]
+    },
+
+
+    {
+      "ad": "Tiyatro Kulübü",
+      "ozellik": "İKÜ Tiyatro Kulübü, başlangıçta bir topluluk olarak kurulmuş, zamanla kulüpleşerek bugünkü adını almıştır. Her yıl yeni oyunlar sahneleyen kulüp, çeşitli tiyatro festivallerine katılmakta ve Akıngüç Oditoryumu’nda kendi festivalini düzenlemektedir. Oyunculuk eğitimleri ve doğaçlama atölyeleriyle İKÜ’yü farklı platformlarda temsil etmektedir.",
+      "anahtar_kelimeler": ["oyunculuk", "tiyatro", "sahne", "drama", "rol yapma", "sanat", "atölye","sahne sanatları","Sunum ve iletişim"]
+    },
+
+
+    {
+      "ad": "Toplumsal Cinsiyet Eşitliği Kulübü",
+      "ozellik": "Cinsiyet eşitliği, ayrımcılıkla mücadele ve toplumsal farkındalık konularında seminerler ve aktivizm etkinlikleri düzenler.",
+      "anahtar_kelimeler": ["eşitlik", "cinsiyet", "sosyal", "farkındalık", "kadın", "aktivizm"]
+    },
+
+
+    {
+      "ad": "WeAccept Öğrenci Kulübü",
+      "ozellik": "Kapsayıcılık, çeşitlilik ve empati konularına odaklanarak kampüste daha kabul edici bir ortam yaratmayı hedefler.",
+      "anahtar_kelimeler": ["kapsayıcılık", "çeşitlilik", "empati", "sosyal", "farkındalık"]
+    },
+   
+
+    {
+      "ad": "Yelken Kulübü",
+      "ozellik": "Temel yelken eğitimleri verir, denizcilik kültürü ve sporunu tanıtır; yelkenli teknelerle geziler düzenler.",
+      "anahtar_kelimeler": ["yelken", "deniz", "spor", "macera", "eğitim", "seyahat"]
+    },
+   
+
+    {
+      "ad": "Yeşilay Kulübü",
+      "ozellik": "Bağımlılıkla mücadele (tütün, alkol, teknoloji) ve sağlıklı yaşam bilinci oluşturma konularında farkındalık çalışmaları yapar.",
+      "anahtar_kelimeler": ["Yeşilay", "bağımlılık", "sağlıklı yaşam","sosyal sorumluluk"]
+    }
+  ]
+}
