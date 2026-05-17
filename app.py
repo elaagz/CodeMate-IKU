@@ -264,13 +264,24 @@ if soru := st.chat_input("Sorunuzu buraya yazın..."):
         else:
             with st.spinner("Yanıtlanıyor..."):
                 try:
-                    arama_sorusu = soru.lower().replace("mail", "e-posta").replace("oda", "ofis").replace("dönem", "yarıyıl")
+                    temiz_soru = soru.lower().strip()
+                    arama_sorusu = temiz_soru.replace("mail", "e-posta").replace("oda", "ofis").replace("dönem", "yarıyıl")
 
-                    if len(st.session_state.mesajlar) >= 3:
-                        onceki_soru = st.session_state.mesajlar[-3]["icerik"].lower()
-                        arama_sorusu = f"{onceki_soru} {arama_sorusu}"
+                    # GEÇMİŞ BAĞLANTISI
+                    kullanici_mesajlari = [m["icerik"] for m in st.session_state.mesajlar if m["rol"] == "user"]
                     
-                    docs = vectorstore.similarity_search(arama_sorusu, k=25) 
+                    if len(kullanici_mesajlari) >= 2: 
+                        ilk_kullanici_sorusu = kullanici_mesajlari[0].lower()
+                        anahtar_baglam = " ".join(ilk_kullanici_sorusu.split()[:3])
+                        
+                        if not any(kelime in arama_sorusu for kelime in anahtar_baglam.split()):
+                            arama_sorusu = f"{anahtar_baglam} {arama_sorusu}"
+    
+                    if len(temiz_soru) < 4 and len(kullanici_mesajlari) <= 1:
+                        docs = []
+                    else:
+                        docs = vectorstore.similarity_search(arama_sorusu, k=25)
+                    
                     context = "\n\n".join([f"KAYNAK: {doc.metadata.get('source', 'bilinmiyor')}\n{doc.page_content}" for doc in docs])
 
                     etkinlik_sorgusu = any(k in temiz_soru for k in ["takvim", "unical", "güncel duyuru", "bu haftaki"])
