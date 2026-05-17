@@ -10,21 +10,18 @@ import json
 import time
 
 LOGO_PATH = "assets/codemate_logo.png"
+# SESSION STATE BAŞLATMA 
+if "sohbet_havuzu" not in st.session_state:
+    st.session_state.sohbet_havuzu = {} 
 
-USER_CONFIG_FILE = "user_settings.json"
+if "mesajlar" not in st.session_state:
+    st.session_state.mesajlar = []
 
-def kullanıcı_tipini_kaydet(tip):
-    with open(USER_CONFIG_FILE, "w", encoding="utf-8") as f:
-        json.dump({"user_type": tip}, f)
-
-def kullanıcı_tipini_oku():
-    if os.path.exists(USER_CONFIG_FILE):
-        with open(USER_CONFIG_FILE, "r", encoding="utf-8") as f:
-            return json.load(f).get("user_type")
-    return None
+if "chat_id" not in st.session_state:
+    st.session_state.chat_id = None
 
 @st.dialog("Sohbet Silinsin mi?")
-def sohbet_silme_onayi(file_id, file_path):
+def sohbet_silme_onayi(file_id):
     st.write(f"Bu sohbet kaydını silmek istediğinize emin misiniz? Bu işlem geri alınamaz.")
     st.markdown("---")
     
@@ -35,8 +32,8 @@ def sohbet_silme_onayi(file_id, file_path):
     with col2:
         if st.button("Sohbeti Sil", type="primary", use_container_width=True, key=f"confirm_{file_id}"):
             # Silme işlemleri
-            if os.path.exists(file_path):
-                os.remove(file_path)
+            if file_id in st.session_state.sohbet_havuzu:
+                del st.session_state.sohbet_havuzu[file_id]
             
             if st.session_state.get("chat_id") == file_id:
                 st.session_state.mesajlar = []
@@ -59,14 +56,8 @@ def sifirlama_onay_kutusu():
             if "user_type" in st.session_state:
                 del st.session_state.user_type
             st.session_state.mesajlar = []
-            
-            if os.path.exists(USER_CONFIG_FILE):
-                os.remove(USER_CONFIG_FILE)
-            
-            if os.path.exists(CHAT_SAVES_DIR):
-                for dosya in os.listdir(CHAT_SAVES_DIR):
-                    os.remove(os.path.join(CHAT_SAVES_DIR, dosya))
-            
+            st.session_state.sohbet_havuzu = {}
+            st.session_state.chat_id = None
             st.rerun()
 
 # SAYFA YAPILANDIRMASI 
@@ -111,10 +102,11 @@ def sohbeti_kaydet():
         if "chat_id" not in st.session_state or st.session_state.chat_id is None:
             st.session_state.chat_id = str(int(time.time()))
         
-        file_path = os.path.join(CHAT_SAVES_DIR, f"{st.session_state.chat_id}.json")
-        
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(st.session_state.mesajlar, f, ensure_ascii=False, indent=4)      
+        baslik = st.session_state.mesajlar[0]["icerik"][:20] + "..."
+        st.session_state.sohbet_havuzu[st.session_state.chat_id] = {
+            "baslik": baslik,
+            "mesajlar": st.session_state.mesajlar
+        }     
 
 def yeni_sohbet_baslat():
     st.session_state.mesajlar = []
@@ -132,41 +124,34 @@ with st.sidebar:
         yeni_sohbet_baslat()
     
     st.subheader("Eski Sohbetlerin")
-    
-    saved_files = sorted([f for f in os.listdir(CHAT_SAVES_DIR) if f.endswith(".json")], reverse=True)
 
-    for file in saved_files:
-        file_path = os.path.join(CHAT_SAVES_DIR, file)
-        file_id = file.replace(".json", "")
+    # Klasör yerine kullanıcının kendi tarayıcı hafızasından okuyoruz
+    for file_id, sohbet_verisi in sorted(st.session_state.sohbet_havuzu.items(), reverse=True):
+        baslik = sohbet_verisi["baslik"]
+        col_chat, col_del = st.columns([0.82, 0.18], gap="small")
         
-        data = None
-        try:
-            with open(file_path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-        except: continue
-
-        if data:
-            baslik = data[0]["icerik"][:20] + "..."
-            col_chat, col_del = st.columns([0.82, 0.18], gap="small")
-            
-            with col_chat:
-                if st.button(f"💬 {baslik}", key=f"load_{file_id}", use_container_width=True):
-                    st.session_state.mesajlar = data
-                    st.session_state.chat_id = file_id
-                    st.rerun()
-            
-            with col_del:
-                if st.button("🗑️", key=f"btn_del_{file_id}", use_container_width=True):
-                    sohbet_silme_onayi(file_id, file_path)
+        with col_chat:
+            if st.button(f"💬 {baslik}", key=f"load_{file_id}", use_container_width=True):
+                st.session_state.mesajlar = sohbet_verisi["mesajlar"]
+                st.session_state.chat_id = file_id
+                st.rerun()
+        
+        with col_del:
+            if st.button("🗑️", key=f"btn_del_{file_id}", use_container_width=True):
+                if file_id in st.session_state.sohbet_havuzu:
+                    del st.session_state.sohbet_havuzu[file_id]
+                if st.session_state.get("chat_id") == file_id:
+                    st.session_state.mesajlar = []
+                    st.session_state.chat_id = None
+                st.session_state.silindi_mesaji = "Sohbet başarıyla silindi."
+                st.rerun()
+    
 
     if "user_type" in st.session_state:
         st.markdown("---")
 
         if st.button("🔄 Rolü Değiştir", use_container_width=True, help="Öğrenci/Aday seçim ekranına döner"):
             del st.session_state.user_type
-            
-            if os.path.exists("user_settings.json"):
-                os.remove("user_settings.json")
             
             st.rerun()
 
@@ -227,12 +212,6 @@ if "mesajlar" not in st.session_state:
 
     # KULLANICI TİPİ KONTROLÜ VE SEÇİM EKRANI
 if "user_type" not in st.session_state:
-    kayitli_tip = kullanıcı_tipini_oku()
-    
-    if kayitli_tip:
-        st.session_state.user_type = kayitli_tip
-        st.rerun()
-    else:
         st.markdown("### Hoş Geldin! 👋 \nSana daha iyi yardımcı olabilmem için lütfen durumunu seçer misin?")
         
         col1, col2 = st.columns(2)
@@ -240,7 +219,6 @@ if "user_type" not in st.session_state:
         with col1:
             if st.button("💻 Bilgisayar Programcılığı Öğrencisiyim", use_container_width=True, key="main_ogrenci"):
                 st.session_state.user_type = "Bölüm Öğrencisi"
-                kullanıcı_tipini_kaydet("Bölüm Öğrencisi")
                 st.session_state.mesajlar = [{
                     "rol": "assistant", 
                     "icerik": "Selam!👋 İKÜ Bilgisayar Programcılığı asistanın burada. Ne sormak istersin?"
@@ -250,7 +228,6 @@ if "user_type" not in st.session_state:
         with col2:
             if st.button("🌟 Aday Öğrenciyim", use_container_width=True, key="main_aday"):
                 st.session_state.user_type = "Aday Öğrenci"
-                kullanıcı_tipini_kaydet("Aday Öğrenci")
                 st.session_state.mesajlar = [{
                     "rol": "assistant", 
                     "icerik": "Hoş geldin! Bilgisayar Programcılığı bölümüne olan ilgin harika. 🚀 Merak ettiğin her şeyi sorabilirsin."
