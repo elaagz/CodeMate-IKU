@@ -341,13 +341,18 @@ if soru := st.chat_input("Sorunuzu buraya yazın..."):
                     st.rerun()
 
                 except Exception as e:
-                    # Hata oluştuğunda kullanıcının yazdığı son boş mesajı hafızadan geri silelim ki kilitlenmesin
-                    if len(st.session_state.mesajlar) > 0 and st.session_state.mesajlar[-1]["rol"] == "user":
-                        st.session_state.mesajlar.pop()
-                    
+
                     if "429" in str(e):
-                        st.error("⚠️ Gemini API Kotası Doldu veya Yoğunluk Var! Lütfen 15 saniye sonra tekrar deneyin.")
-                        st.stop() # Kodun daha fazla çalışıp kilitlenmesini engeller
+                        cevap_metni = "⚠️ Gemini API kotası doldu veya yoğunluk var. Lütfen 15 saniye sonra tekrar deneyin."
                     else:
-                        st.error(f"Sistemde bir sorun oluştu: {e}")
-                        st.stop()
+                        cevap_metni = f"⚠️ Sistemde bir sorun oluştu: {e}"
+
+                    st.error(cevap_metni)
+
+                    st.session_state.mesajlar.append({
+                        "rol": "assistant",
+                        "icerik": cevap_metni
+                    })
+
+                    sohbeti_kaydet()
+                    st.rerun()
