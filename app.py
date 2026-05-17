@@ -282,7 +282,7 @@ if soru := st.chat_input("Sorunuzu buraya yazın..."):
 
                     gecmis = ""
                     if len(st.session_state.mesajlar) > 1:
-                        for m in st.session_state.mesajlar[-4:-1]: 
+                        for m in st.session_state.mesajlar[:-1]: 
                             gecmis += f"{m['rol'].upper()}: {m['icerik']}\n"
 
                     if not context.strip():
