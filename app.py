@@ -63,8 +63,6 @@ def sifirlama_onay_kutusu():
 # SAYFA YAPILANDIRMASI 
 load_dotenv()
 
-LOGO_PATH = "assets/codemate_logo.png"
-
 st.set_page_config(
     page_title="CodeMate İKÜ",
     page_icon=LOGO_PATH,
@@ -138,15 +136,8 @@ with st.sidebar:
         
         with col_del:
             if st.button("🗑️", key=f"btn_del_{file_id}", use_container_width=True):
-                if file_id in st.session_state.sohbet_havuzu:
-                    del st.session_state.sohbet_havuzu[file_id]
-                if st.session_state.get("chat_id") == file_id:
-                    st.session_state.mesajlar = []
-                    st.session_state.chat_id = None
-                st.session_state.silindi_mesaji = "Sohbet başarıyla silindi."
-                st.rerun()
+                sohbet_silme_onayi(file_id)
     
-
     if "user_type" in st.session_state:
         st.markdown("---")
 
@@ -293,7 +284,7 @@ if soru := st.chat_input("Sorunuzu buraya yazın..."):
 
                     gecmis = ""
                     if len(st.session_state.mesajlar) > 1:
-                        for m in st.session_state.mesajlar[:-1]: 
+                        for m in st.session_state.mesajlar[-8:-1]: 
                             gecmis += f"{m['rol'].upper()}: {m['icerik']}\n"
 
                     if not context.strip():
@@ -360,4 +351,3 @@ if soru := st.chat_input("Sorunuzu buraya yazın..."):
                     else:
                         st.error(f"Sistemde bir sorun oluştu: {e}")
                         st.stop()
-                        st.error(f"Sistemde bir sorun oluştu: {e}")
