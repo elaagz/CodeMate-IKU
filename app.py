@@ -307,7 +307,6 @@ with st.sidebar:
         st.session_state.user = None
         st.session_state.user_type = None
         st.session_state.mesajlar = []
-        st.rerun()
 
     if st.button("Geçmişi Sil", use_container_width=True):
         sifirlama_onay_kutusu()
