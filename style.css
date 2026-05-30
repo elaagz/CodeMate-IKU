@@ -252,16 +252,125 @@ div:has([data-testid="stChatInput"]) {
 [data-testid="stChatInput"] textarea::placeholder {
     color: #b0b0b0 !important;
 }
-/* STREAMLIT FULLSCREEN BUTONUNU KÖKTEN KAZIMA HİLESİ */
-[data-testid="StyledFullScreenButton"],
-[data-testid="stImage"] [data-testid="StyledFullScreenButton"],
-.stImage button {
+
+/* GİRİŞ / KAYIT EKRANI */
+/* BAŞLIK ALANI */
+.login-title-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.login-gradient-title {
+    font-size: 3rem !important;
+    font-weight: 800 !important;
+    color: #ffffff !important; 
+    text-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    margin-top: 15px;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    text-align: center;
+}
+.login-subtitle {
+    color: #a0a0a5;
+    font-size: 1.1rem;
+    margin-top: 8px;
+}
+
+/* SEKMELER */
+div[data-baseweb="tab-list"] {
+    background-color: rgba(30, 30, 30, 0.6) !important;
+    padding: 6px !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    margin-bottom: 25px !important;
+    gap: 10px !important;
+}
+
+div[data-baseweb="tab-list"] button {
+    flex: 1 !important;
+    font-size: 1.15rem !important; 
+    font-weight: 700 !important;
+    height: 48px !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+div[data-baseweb="tab"] {
+    font-weight: 700 !important;
+    color: #b0b0b0 !important;
+    border-radius: 12px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    height: 48px !important;
+    justify-content: center !important;
+    border: none !important;
+}
+
+div[data-baseweb="tab"][aria-selected="true"] {
+    background-color: #e63946 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4) !important;
+}
+
+div[data-baseweb="tab"]:hover {
+    color: #ffffff !important;
+}
+
+/* FORM KARTI */
+div[data-testid="stForm"] {
+    background: rgba(30, 30, 30, 0.45) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 24px !important;
+    padding: 40px !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5) !important;
+    margin-bottom: 30px !important;
+}
+
+/* INPUTLAR */
+div[data-testid="stForm"] div[data-testid="stTextInput"] input {
+    background-color: rgba(20, 20, 20, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 12px !important;
+    color: #ffffff !important;
+    padding: 14px 16px !important;
+    font-size: 1rem !important;
+    transition: all 0.2s ease !important;
+}
+div[data-testid="stForm"] div[data-testid="stTextInput"] input:focus {
+    border-color: #e63946 !important;
+    box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.2) !important;
+}
+
+/* DURUMUNUZ */
+div[data-testid="stForm"] div[data-testid="stSelectbox"] [data-baseweb="select"] > div {
+    background-color: rgba(20, 20, 20, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 12px !important;
+    min-height: 48px !important;
+}
+
+/* GİRİŞ/KAYIT BUTONU */
+div[data-testid="stForm"] button[type="submit"] {
+    background: linear-gradient(135deg, #e63946, #ff4d6d) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    letter-spacing: 0.5px !important;
+    border-radius: 14px !important;
+    height: 52px !important;
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4) !important;
+    margin-top: 20px !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+div[data-testid="stForm"] button[type="submit"]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(230, 57, 70, 0.6) !important;
+    filter: brightness(1.1) !important;
+}
+div[data-testid="stForm"] button[type="submit"]:active {
+    transform: translateY(1px) !important;
+}
+[data-testid="InputInstructions"] {
     display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    width: 0 !important;
-    height: 0 !important;
-    position: absolute !important;
-    z-index: -9999 !important;
 }

@@ -6,59 +6,12 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 import requests
 from bs4 import BeautifulSoup
 import os
-import json
 import time
+import hashlib
+from supabase import create_client, Client
+import extra_streamlit_components as stx
 
 LOGO_PATH = "assets/codemate_logo.png"
-# SESSION STATE BAŞLATMA 
-if "sohbet_havuzu" not in st.session_state:
-    st.session_state.sohbet_havuzu = {} 
-
-if "mesajlar" not in st.session_state:
-    st.session_state.mesajlar = []
-
-if "chat_id" not in st.session_state:
-    st.session_state.chat_id = None
-
-@st.dialog("Sohbet Silinsin mi?")
-def sohbet_silme_onayi(file_id):
-    st.write(f"Bu sohbet kaydını silmek istediğinize emin misiniz? Bu işlem geri alınamaz.")
-    st.markdown("---")
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        if st.button("İptal", use_container_width=True, key=f"cancel_{file_id}"):
-            st.rerun()
-    with col2:
-        if st.button("Sohbeti Sil", type="primary", use_container_width=True, key=f"confirm_{file_id}"):
-            # Silme işlemleri
-            if file_id in st.session_state.sohbet_havuzu:
-                del st.session_state.sohbet_havuzu[file_id]
-            
-            if st.session_state.get("chat_id") == file_id:
-                st.session_state.mesajlar = []
-                st.session_state.chat_id = None
-                
-            st.session_state.silindi_mesaji = "Sohbet başarıyla silindi."
-            st.rerun()
-
-@st.dialog("Sistem Sıfırlansın mı?")
-def sifirlama_onay_kutusu():
-    st.write("Bu işlem, tüm sohbet geçmişinizi ve kullanıcı ayarlarınızı kalıcı olarak silecektir. Emin misiniz?")
-    st.markdown("---")
-    
-    col1, col2 = st.columns([1, 1])
-    with col1:
-        if st.button("İptal", use_container_width=True):
-            st.rerun()
-    with col2:
-        if st.button("Sil", type="primary", use_container_width=True):
-            if "user_type" in st.session_state:
-                del st.session_state.user_type
-            st.session_state.mesajlar = []
-            st.session_state.sohbet_havuzu = {}
-            st.session_state.chat_id = None
-            st.rerun()
 
 # SAYFA YAPILANDIRMASI 
 load_dotenv()
@@ -69,9 +22,228 @@ st.set_page_config(
     layout="centered"
 )
 
-with open("style.css", "r", encoding="utf-8") as f:
-    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+# SUPABASE BAĞLANTISI
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
+if not SUPABASE_URL or not SUPABASE_KEY:
+    st.error("Lütfen .env dosyasında SUPABASE_URL ve SUPABASE_KEY değerlerini tanımlayın.")
+    st.stop()
+
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+def hash_password(password: str) -> str:
+    return hashlib.sha256(password.encode("utf-8")).hexdigest()
+
+# KULLANICI VERİTABANI İŞLEMLERİ 
+def kullanici_kaydet(username, password, user_type):
+    try:
+        password_hash = hash_password(password)
+        response = supabase.table("kullanicilar").insert({
+            "username": username,
+            "password_hash": password_hash,
+            "user_type": user_type
+        }).execute()
+        return True, "Kayıt başarılı!"
+    except Exception as e:
+        if "duplicate key" in str(e) or "kullanicilar_username_key" in str(e):
+            return False, "Bu kullanıcı adı zaten alınmış."
+        return False, f"Hata: {e}"
+
+def kullanici_giris(username, password):
+    try:
+        password_hash = hash_password(password)
+        response = supabase.table("kullanicilar").select("*").eq("username", username).execute()
+        if len(response.data) == 0:
+            return False, "Kullanıcı bulunamadı.", None
+        
+        user = response.data[0]
+        if user["password_hash"] == password_hash:
+            return True, "Giriş başarılı!", user
+        else:
+            return False, "Hatalı şifre.", None
+    except Exception as e:
+        return False, f"Hata: {e}", None
+
+# --- SOHBET VERİTABANI İŞLEMLERİ ---
+def sohbeti_kaydet():
+    if "mesajlar" in st.session_state and len(st.session_state.mesajlar) > 0 and st.session_state.get("logged_in"):
+        if "chat_id" not in st.session_state or st.session_state.chat_id is None:
+            st.session_state.chat_id = str(int(time.time()))
+        
+        ilk_mesaj = st.session_state.mesajlar[0]["icerik"]
+        baslik = ilk_mesaj[:20] + "..." if len(ilk_mesaj) > 20 else ilk_mesaj
+        
+        try:
+            supabase.table("sohbetler").upsert({
+                "id": st.session_state.chat_id,
+                "user_id": st.session_state.user["id"],
+                "title": baslik,
+                "messages": st.session_state.mesajlar
+            }).execute()
+        except Exception as e:
+            pass
+
+def sohbeti_sil(chat_id):
+    try:
+        supabase.table("sohbetler").delete().eq("id", chat_id).execute()
+        if st.session_state.get("chat_id") == chat_id:
+            st.session_state.mesajlar = []
+            st.session_state.chat_id = None
+        return True
+    except Exception as e:
+        return False
+
+def eski_sohbetleri_getir(user_id):
+    try:
+        response = supabase.table("sohbetler").select("id", "title").eq("user_id", user_id).order("created_at", desc=True).execute()
+        return response.data
+    except Exception as e:
+        return []
+
+def yeni_sohbet_baslat():
+    st.session_state.mesajlar = []
+    st.session_state.chat_id = str(int(time.time()))
+    st.rerun()
+
+@st.dialog("Sohbet Silinsin mi?")
+def sohbet_silme_onayi(chat_id):
+    st.write("Bu sohbet kaydını silmek istediğinize emin misiniz? Bu işlem geri alınamaz.")
+    st.markdown("---")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("İptal", use_container_width=True, key=f"cancel_{chat_id}"):
+            st.rerun()
+    with col2:
+        if st.button("Sohbeti Sil", type="primary", use_container_width=True, key=f"confirm_{chat_id}"):
+            if sohbeti_sil(chat_id):
+                st.session_state.silindi_mesaji = "Sohbet başarıyla silindi."
+            else:
+                st.session_state.silindi_mesaji = "Sohbet silinirken bir hata oluştu."
+            st.rerun()
+
+@st.dialog("Tüm Sohbet Geçmişi Sıfırlansın mı?")
+def sifirlama_onay_kutusu():
+    st.write("Tüm sohbet geçmişiniz kalıcı olarak silinecektir. Emin misiniz?")
+    st.markdown("---")
+    
+    col1, col2 = st.columns([1, 1])
+    with col1:
+        if st.button("İptal", use_container_width=True):
+            st.rerun()
+    with col2:
+        if st.button("Sıfırla", type="primary", use_container_width=True):
+            try:
+                supabase.table("sohbetler").delete().eq("user_id", st.session_state.user["id"]).execute()
+                st.session_state.mesajlar = []
+                st.session_state.chat_id = None
+                st.session_state.silindi_mesaji = "Tüm sohbet geçmişiniz başarıyla silindi."
+            except Exception as e:
+                st.session_state.silindi_mesaji = f"Sıfırlanırken hata oluştu: {e}"
+            st.rerun()
+
+try:
+    with open("style.css", "r", encoding="utf-8") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+except Exception as e:
+    pass
+
+# COOKIE YÖNETİCİSİ TANIMLAMA
+cookie_manager = stx.CookieManager(key="cookie_manager")
+
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
+if "run_count" not in st.session_state:
+    st.session_state.run_count = 0
+else:
+    st.session_state.run_count += 1
+
+saved_user_id = cookie_manager.get(cookie="user_id")
+if not st.session_state.logged_in:
+    try:
+        if saved_user_id:
+            response = supabase.table("kullanicilar").select("*").eq("id", int(saved_user_id)).execute()
+            if response.data:
+                user_data = response.data[0]
+                st.session_state.logged_in = True
+                st.session_state.user = user_data
+                st.session_state.user_type = user_data["user_type"]
+                st.session_state.mesajlar = []
+                st.session_state.ilk_giris = True
+                st.rerun()
+    except Exception as e:
+        pass
+
+# GİRİŞ / KAYIT EKRANI 
+if not st.session_state.logged_in:
+    if st.session_state.run_count == 0 and not saved_user_id:
+        time.sleep(0.8)
+        st.rerun()
+    col_space1, col_form, col_space2 = st.columns([0.15, 0.7, 0.15])
+    
+    with col_form:
+        c1, c2, c3 = st.columns([1, 1.2, 1])
+        with c2:
+            st.image(LOGO_PATH, use_container_width=True)
+            
+        st.markdown("""
+            <div class="login-title-container">
+                <div class="login-gradient-title">CodeMate İKÜ</div>
+                <div class="login-subtitle">Yapay Zeka Destekli Bilgisayar Programcılığı Asistanı</div>
+            </div>
+        """, unsafe_allow_html=True)
+        
+        sekme_giris, sekme_kayit = st.tabs(["Giriş Yap", "Kayıt Ol"])
+        
+        with sekme_giris:
+            with st.form("form_giris"):
+                kullanici_adi = st.text_input("Kullanıcı Adı / Öğrenci No", key="login_username").strip()
+                sifre = st.text_input("Şifre", type="password", key="login_password")
+                btn_giris = st.form_submit_button("Giriş Yap", use_container_width=True)
+                
+                if btn_giris:
+                    if not kullanici_adi or not sifre:
+                        st.warning("⚠️ Lütfen tüm alanları doldurun.")
+                    else:
+                        basarili, mesaj, user_data = kullanici_giris(kullanici_adi, sifre)
+                        if basarili:
+                            st.session_state.logged_in = True
+                            st.session_state.user = user_data
+                            st.session_state.user_type = user_data["user_type"]
+                            st.session_state.mesajlar = []
+                            
+                            try:
+                                cookie_manager.set(cookie="user_id", val=str(user_data["id"]), key="login_cookie_set")
+                            except:
+                                pass
+                                
+                            st.success("Başarıyla giriş yapıldı!")
+                            time.sleep(0.5)
+                            st.rerun()
+                        else:
+                            st.error(f"❌ {mesaj}")
+                            
+        with sekme_kayit:
+            with st.form("form_kayit"):
+                yeni_kullanici = st.text_input("Kullanıcı Adı / Öğrenci No", key="reg_username").strip()
+                yeni_sifre = st.text_input("Şifre", type="password", key="reg_password")
+                tip = st.selectbox("Durumunuz", ["Bölüm Öğrencisi", "Aday Öğrenci"], key="reg_usertype")
+                btn_kayit = st.form_submit_button("Hesap Oluştur ve Kaydol", use_container_width=True)
+                
+                if btn_kayit:
+                    if not yeni_kullanici or not yeni_sifre:
+                        st.warning("⚠️ Lütfen tüm alanları doldurun.")
+                    elif len(yeni_sifre) < 6:
+                        st.warning("⚠️ Şifre en az 6 karakter olmalıdır.")
+                    else:
+                        basarili, mesaj = kullanici_kaydet(yeni_kullanici, yeni_sifre, tip)
+                        if basarili:
+                            st.success("Hesabınız başarıyla oluşturuldu! Şimdi Giriş Yap sekmesinden giriş yapabilirsiniz.")
+                        else:
+                            st.error(f"❌ {mesaj}")
+    st.stop()
+# GİRİŞ YAPILDIĞINDA
 # ANA EKRAN BAŞLIKLARI
 col_logo, col_title = st.columns([0.08, 0.92])
 
@@ -85,32 +257,6 @@ with col_title:
 st.caption("Bilgisayar Programcılığı bölümü hakkında her şeyi bana sorabilirsin!")
 st.markdown("---")
 
-# BİLDİRİM ALANI
-if "silindi_mesaji" in st.session_state:
-    st.toast(st.session_state.silindi_mesaji, icon="🗑️")
-    del st.session_state.silindi_mesaji
-
-# KLASÖR VE SOHBET AYARLARI
-CHAT_SAVES_DIR = "sohbet_gecmisi"
-if not os.path.exists(CHAT_SAVES_DIR):
-    os.makedirs(CHAT_SAVES_DIR)
-
-def sohbeti_kaydet():
-    if "mesajlar" in st.session_state and len(st.session_state.mesajlar) > 0:
-        if "chat_id" not in st.session_state or st.session_state.chat_id is None:
-            st.session_state.chat_id = str(int(time.time()))
-        
-        baslik = st.session_state.mesajlar[0]["icerik"][:20] + "..."
-        st.session_state.sohbet_havuzu[st.session_state.chat_id] = {
-            "baslik": baslik,
-            "mesajlar": st.session_state.mesajlar
-        }     
-
-def yeni_sohbet_baslat():
-    st.session_state.mesajlar = []
-    st.session_state.chat_id = str(int(time.time()))
-    st.rerun()
-
 # SIDEBAR
 with st.sidebar:
     col1, col2, col3 = st.columns([0.7, 3, 0.7])
@@ -122,43 +268,52 @@ with st.sidebar:
         yeni_sohbet_baslat()
     
     st.subheader("Eski Sohbetlerin")
+    
+    saved_chats = eski_sohbetleri_getir(st.session_state.user["id"])
 
-    # Klasör yerine kullanıcının kendi tarayıcı hafızasından okuyoruz
-    for file_id, sohbet_verisi in sorted(st.session_state.sohbet_havuzu.items(), reverse=True):
-        baslik = sohbet_verisi["baslik"]
+    for chat in saved_chats:
+        file_id = chat["id"]
+        baslik = chat["title"]
         col_chat, col_del = st.columns([0.82, 0.18], gap="small")
         
         with col_chat:
             if st.button(f"💬 {baslik}", key=f"load_{file_id}", use_container_width=True):
-                st.session_state.mesajlar = sohbet_verisi["mesajlar"]
-                st.session_state.chat_id = file_id
-                st.rerun()
-        
+                try:
+                    response = supabase.table("sohbetler").select("messages").eq("id", file_id).execute()
+                    if response.data:
+                        st.session_state.mesajlar = response.data[0]["messages"]
+                        st.session_state.chat_id = file_id
+                        st.rerun()
+                except Exception as e:
+                    st.error("Sohbet yüklenemedi.")
+            
         with col_del:
             if st.button("🗑️", key=f"btn_del_{file_id}", use_container_width=True):
                 sohbet_silme_onayi(file_id)
-    
-    if "user_type" in st.session_state:
-        st.markdown("---")
 
-        if st.button("🔄 Rolü Değiştir", use_container_width=True, help="Öğrenci/Aday seçim ekranına döner"):
-            del st.session_state.user_type
-            
-            st.rerun()
+    st.markdown("---")
 
-        if st.button("🗑️ Sistemi Sıfırla", use_container_width=True):
-            sifirlama_onay_kutusu()
+    if st.button("Çıkış Yap", use_container_width=True):
+        try:
+            cookie_manager.delete(cookie="user_id", key="logout_cookie_del")
+        except:
+            pass
+        st.session_state.clear()
+        st.rerun()
 
-        st.markdown(f"""
-        <div class="fixed-user-box">
-            <span class="fixed-user-icon">👤</span>
-            <div>
-                <b>Kullanıcı Modu:</b> {st.session_state.user_type}
-            </div>
+    if st.button("Geçmişi Sil", use_container_width=True):
+        sifirlama_onay_kutusu()
+
+    st.markdown(f"""
+    <div class="fixed-user-box">
+        <span class="fixed-user-icon">👤</span>
+        <div>
+            <b>Kullanıcı Modu:</b> {st.session_state.user_type}<br>
+            <b>Kullanıcı:</b> {st.session_state.user['username']}
         </div>
-        """, unsafe_allow_html=True)
+    </div>
+    """, unsafe_allow_html=True)
 
-# UNICAL
 def unical_motoru():
     url = "https://www.iku.edu.tr/unical"
     UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
@@ -201,36 +356,24 @@ except Exception as e:
 if "mesajlar" not in st.session_state:
     st.session_state.mesajlar = []
 
-    # KULLANICI TİPİ KONTROLÜ VE SEÇİM EKRANI
-if "user_type" not in st.session_state:
-        st.markdown("### Hoş Geldin! 👋 \nSana daha iyi yardımcı olabilmem için lütfen durumunu seçer misin?")
-        
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            if st.button("💻 Bilgisayar Programcılığı Öğrencisiyim", use_container_width=True, key="main_ogrenci"):
-                st.session_state.user_type = "Bölüm Öğrencisi"
-                st.session_state.mesajlar = [{
-                    "rol": "assistant", 
-                    "icerik": "Selam!👋 İKÜ Bilgisayar Programcılığı asistanın burada. Ne sormak istersin?"
-                }]
-                st.rerun()
-                
-        with col2:
-            if st.button("🌟 Aday Öğrenciyim", use_container_width=True, key="main_aday"):
-                st.session_state.user_type = "Aday Öğrenci"
-                st.session_state.mesajlar = [{
-                    "rol": "assistant", 
-                    "icerik": "Hoş geldin! Bilgisayar Programcılığı bölümüne olan ilgin harika. 🚀 Merak ettiğin her şeyi sorabilirsin."
-                }]
-                st.rerun()
-        st.stop()
+if len(st.session_state.mesajlar) == 0 and st.session_state.get("ilk_giris", False):
+    if st.session_state.user_type == "Bölüm Öğrencisi":
+        st.session_state.mesajlar = [{
+            "rol": "assistant", 
+            "icerik": "Selam!👋 İKÜ Bilgisayar Programcılığı asistanın burada. Ne sormak istersin?"
+        }]
+    else:
+        st.session_state.mesajlar = [{
+            "rol": "assistant", 
+            "icerik": "Hoş geldin! Bilgisayar Programcılığı bölümüne olan ilgin harika. 🚀 Merak ettiğin her şeyi sorabilirsin."
+        }]
+    st.session_state.ilk_giris = False
 
 for mesaj in st.session_state.mesajlar:
     with st.chat_message(mesaj["rol"]):
         st.markdown(mesaj["icerik"])
 
-#  KULLANICI ETKİLEŞİMİ VE RAG SİSTEMİ
+# KULLANICI ETKİLEŞİMİ VE RAG SİSTEMİ
 if soru := st.chat_input("Sorunuzu buraya yazın..."):
     st.session_state.mesajlar.append({"rol": "user", "icerik": soru})
 
@@ -255,24 +398,13 @@ if soru := st.chat_input("Sorunuzu buraya yazın..."):
         else:
             with st.spinner("Yanıtlanıyor..."):
                 try:
-                    temiz_soru = soru.lower().strip()
-                    arama_sorusu = temiz_soru.replace("mail", "e-posta").replace("oda", "ofis").replace("dönem", "yarıyıl")
+                    arama_sorusu = soru.lower().replace("mail", "e-posta").replace("oda", "ofis").replace("dönem", "yarıyıl")
 
-                    # GEÇMİŞ BAĞLANTISI
-                    kullanici_mesajlari = [m["icerik"] for m in st.session_state.mesajlar if m["rol"] == "user"]
+                    if len(st.session_state.mesajlar) >= 3:
+                        onceki_soru = st.session_state.mesajlar[-3]["icerik"].lower()
+                        arama_sorusu = f"{onceki_soru} {arama_sorusu}"
                     
-                    if len(kullanici_mesajlari) >= 2: 
-                        ilk_kullanici_sorusu = kullanici_mesajlari[0].lower()
-                        anahtar_baglam = " ".join(ilk_kullanici_sorusu.split()[:3])
-                        
-                        if not any(kelime in arama_sorusu for kelime in anahtar_baglam.split()):
-                            arama_sorusu = f"{anahtar_baglam} {arama_sorusu}"
-    
-                    if len(temiz_soru) < 4 and len(kullanici_mesajlari) <= 1:
-                        docs = []
-                    else:
-                        docs = vectorstore.similarity_search(arama_sorusu, k=25)
-                    
+                    docs = vectorstore.similarity_search(arama_sorusu, k=25) 
                     context = "\n\n".join([f"KAYNAK: {doc.metadata.get('source', 'bilinmiyor')}\n{doc.page_content}" for doc in docs])
 
                     etkinlik_sorgusu = any(k in temiz_soru for k in ["takvim", "unical", "güncel duyuru", "bu haftaki"])
@@ -311,10 +443,10 @@ if soru := st.chat_input("Sorunuzu buraya yazın..."):
                         9. KİŞİSELLEŞTİRİLMİŞ TAVSİYE SİSTEMİ : 
                         - ETKİNLİKLER İÇİN: Kullanıcı okuldaki etkinlikleri sorduğunda, var olan tüm etkinlikleri listele. Ancak listede "Yazılım, Yapay Zeka, Bilgisayar, Bilişim, Teknoloji, Kodlama veya Doğal Dil İşleme" gibi Bilgisayar Programcılığı bölümünü doğrudan ilgilendiren etkinlikler varsa, bunları sıradan bir madde gibi sunma! Cevabın en sonunda "💡 Asistan Tavsiyesi:" başlığı açarak bu etkinliği, "Bölümün dolayısıyla, kariyerin için özellikle bu etkinliğe katılmanı şiddetle tavsiye ederim!" şeklinde özellikle vurgula.
                         - KULÜPLER İÇİN: Kullanıcı kulüpleri sorduğunda veya genel bir tavsiye istediğinde; Bilgisayar Programcılığı bölümü için teknik kulüpleri mutlaka "💡 Bölümüne Özel Kulüp Tavsiyesi:" başlığıyla en öne çıkar. "Bir Bilgisayar Programcılığı öğrencisi olarak teknik network kurman ve projeler geliştirmen için bu kulüp ideal!" şeklinde bir motivasyon cümlesi ekle.
-                        10. BÖLÜM ETKİNLİĞİ ÖNCELİĞİ: Kullanıcı "bölümdeki etkinlikler" diye sorduğunda, ÖNCE BAĞLAM (context) içindeki dökümanları tara. Eğer dökümanlarda Bilgisayar Programcılığı bölümüne özel bir seminer, teknik gezi veya proje sunumu varsa BUNLARI "Bölüm Etkinlikleri" başlığı altında ver.
-                        11. GENEL OKUL ETKİNLİKLERİ (UniCAL): UniCAL'den gelen canlı veriler tüm üniversiteyi kapsar. Kullanıcı spesifik olarak bölümü sorduğunda, UniCAL listesindeki her şeyi dökme! Sadece "Yazılım, Yapay Zeka, Bilgisayar, Bilişim, Kodlama, Algoritma" gibi anahtar kelimeleri içerenleri bölümle ilişkilendirerek sun.
-                        12. ERASMUS VE HAREKETLİLİK KESİN AYRIM KURALI: Kullanıcı doğrudan veya dolaylı olarak "Erasmus", "yurt dışı", "Avrupa imkanları" gibi sorular sorduğunda, cevabına KESİNLİKLE VE İSTİSNAZIZ şu cümleyle başla: "İstanbul Kültür Üniversitesi Bilgisayar Programcılığı programı kapsamında anlaşmalı bir partner üniversitemiz bulunmamaktadır. Bu nedenle, bölüm öğrencileri Erasmus+ Öğrenim Hareketliliğinden yararlanamamaktadır." Bu olumsuz durumu belirttikten sonra, hemen bir alt satıra geç ve şu alternatifi sun: "Ancak, öğrenciler dilerse Erasmus+ Staj Hareketliliği programından faydalanabilirler." Bu iki kavramın farkını net koy; 'Öğrenim' (Avrupa'da bir okulda ders görme) YOKTUR, 'Staj' (Avrupa'da bir şirkette zorunlu staj yapma) VARDIR. Bilgileri birbirine karıştırma.
-    
+                        - BÖLÜM ETKİNLİĞİ ÖNCELİĞİ: Kullanıcı "bölümdeki etkinlikler" diye sorduğunda, ÖNCE BAĞLAM (context) içindeki dökümanları tara. Eğer dökümanlarda Bilgisayar Programcılığı bölümüne özel bir seminer, teknik gezi veya proje sunumu varsa BUNLARI "Bölüm Etkinlikleri" başlığı altında ver.
+                        - GENEL OKUL ETKİNLİKLERİ (UniCAL): UniCAL'den gelen canlı veriler tüm üniversiteyi kapsar. Kullanıcı spesifik olarak bölümü sorduğunda, UniCAL listesindeki her şeyi dökme! Sadece "Yazılım, Yapay Zeka, Bilgisayar, Bilişim, Kodlama, Algoritma" gibi anahtar kelimeleri içerenleri bölümle ilişkilendirerek sun.
+                        - ERASMUS VE HAREKETLİLİK KESİN AYRIM KURALI: Kullanıcı doğrudan veya dolaylı olarak "Erasmus", "yurt dışı", "Avrupa imkanları" gibi sorular sorduğunda, cevabına KESİNLİKLE VE İSTİSNAZIZ şu cümleyle başla: "İstanbul Kültür Üniversitesi Bilgisayar Programcılığı programı kapsamında anlaşmalı bir partner üniversitemiz bulunmamaktadır. Bu nedenle, bölüm öğrencileri Erasmus+ Öğrenim Hareketliliğinden yararlanamamaktadır." Bu olumsuz durumu belirttikten sonra, hemen bir alt satıra geç ve şu alternatifi sun: "Ancak, öğrenciler dilerse Erasmus+ Staj Hareketliliği programından faydalanabilirler." Bu iki kavramın farkını net koy; 'Öğrenim' (Avrupa'da bir okulda ders görme) YOKTUR, 'Staj' (Avrupa'da bir şirkette zorunlu staj yapma) VARDIR. Bilgileri birbirine karıştırma.
+            
                         SOHBET GEÇMİŞİ:
                         {gecmis}
 
@@ -341,18 +473,7 @@ if soru := st.chat_input("Sorunuzu buraya yazın..."):
                     st.rerun()
 
                 except Exception as e:
-
                     if "429" in str(e):
-                        cevap_metni = "⚠️ Gemini API kotası doldu veya yoğunluk var. Lütfen 15 saniye sonra tekrar deneyin."
+                        st.warning("⚠️ Yoğunluk var, 15 saniye bekleyip tekrar dener misin?")
                     else:
-                        cevap_metni = f"⚠️ Sistemde bir sorun oluştu: {e}"
-
-                    st.error(cevap_metni)
-
-                    st.session_state.mesajlar.append({
-                        "rol": "assistant",
-                        "icerik": cevap_metni
-                    })
-
-                    sohbeti_kaydet()
-                    st.rerun()
+                        st.error(f"Sistemde bir sorun oluştu: {e}")
