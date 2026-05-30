@@ -8,3 +8,4 @@ beautifulsoup4
 sentence-transformers 
 supabase
 extra-streamlit-components
+protobuf==3.20.3
