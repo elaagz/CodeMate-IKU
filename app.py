@@ -311,16 +311,17 @@ with st.sidebar:
     if st.button("Geçmişi Sil", use_container_width=True):
         sifirlama_onay_kutusu()
 
-    st.markdown(f"""
-    <div class="fixed-user-box">
-        <span class="fixed-user-icon">👤</span>
-        <div>
-            <b>Kullanıcı Modu:</b> {st.session_state.user_type}<br>
-            <b>Kullanıcı:</b> {st.session_state.user['username']}
+    if st.session_state.user:
+        st.markdown(f"""
+        <div class="fixed-user-box">
+            <span class="fixed-user-icon">👤</span>
+            <div>
+                <b>Kullanıcı Modu:</b> {st.session_state.user_type}<br>
+                <b>Kullanıcı:</b> {st.session_state.user['username']}
+            </div>
         </div>
-    </div>
-    """, unsafe_allow_html=True)
-
+        """, unsafe_allow_html=True)
+        
 def unical_motoru():
     url = "https://www.iku.edu.tr/unical"
     UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
