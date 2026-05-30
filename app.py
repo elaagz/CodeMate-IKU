@@ -154,13 +154,17 @@ cookie_manager = stx.CookieManager(key="cookie_manager")
 
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
+if "logout_clicked" not in st.session_state:
+    st.session_state.logout_clicked = False
 if "run_count" not in st.session_state:
     st.session_state.run_count = 0
 else:
     st.session_state.run_count += 1
 
 saved_user_id = cookie_manager.get(cookie="user_id")
-if not st.session_state.logged_in:
+if not saved_user_id:
+    st.session_state.logout_clicked = False
+if not st.session_state.logged_in and not st.session_state.logout_clicked:
     try:
         if saved_user_id:
             response = supabase.table("kullanicilar").select("*").eq("id", int(saved_user_id)).execute()
@@ -298,7 +302,11 @@ with st.sidebar:
             cookie_manager.delete(cookie="user_id", key="logout_cookie_del")
         except:
             pass
-        st.session_state.clear()
+        st.session_state.logout_clicked = True
+        st.session_state.logged_in = False
+        st.session_state.user = None
+        st.session_state.user_type = None
+        st.session_state.mesajlar = []
         st.rerun()
 
     if st.button("Geçmişi Sil", use_container_width=True):
