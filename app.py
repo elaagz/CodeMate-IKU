@@ -166,7 +166,7 @@ if not saved_user_id:
     st.session_state.logout_clicked = False
 if not st.session_state.logged_in and not st.session_state.logout_clicked:
     try:
-        if saved_user_id:
+        if saved_user_id and saved_user_id != "" and saved_user_id != "None":
             response = supabase.table("kullanicilar").select("*").eq("id", int(saved_user_id)).execute()
             if response.data:
                 user_data = response.data[0]
@@ -299,7 +299,7 @@ with st.sidebar:
 
     if st.button("Çıkış Yap", use_container_width=True):
         try:
-            cookie_manager.delete(cookie="user_id", key="logout_cookie_del")
+            cookie_manager.set(cookie="user_id", val="", key="logout_cookie_clear")
         except:
             pass
         st.session_state.logout_clicked = True
